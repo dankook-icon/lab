@@ -1,0 +1,114 @@
+{
+  "title": "ICON Lab Research Website",
+  "description": "Build a static research lab website (HTML+CSS+JS) for ICON Lab at Dankook University, styled after yongchae.com, with content from Google Sites",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Project structure and shared layout",
+      "priority": 1,
+      "passes": true,
+      "acceptanceCriteria": [
+        "index.html exists and is valid HTML5",
+        "css/style.css exists with CSS custom properties for colors, typography, spacing matching yongchae style",
+        "js/main.js exists with theme toggle and mobile nav functionality",
+        "Navigation includes: Home, Research, Publications, Members, Teaching, Contact",
+        "Language toggle (KR/EN) in nav bar switches between /ko/ and root paths",
+        "Dark mode toggle works and persists via localStorage",
+        "Mobile hamburger menu appears at <=768px breakpoint",
+        "Footer includes lab name, address, email, phone"
+      ]
+    },
+    {
+      "id": "US-002",
+      "title": "Home page with hero and lab introduction",
+      "priority": 2,
+      "passes": true,
+      "acceptanceCriteria": [
+        "index.html has hero section with ICON Lab name, tagline, and institution",
+        "Lab introduction section with mission statement text",
+        "Research areas overview section with visual cards or icons",
+        "Selected publications section showing top 3-4 papers",
+        "Fade-in scroll animations using Intersection Observer",
+        "Page is responsive: stacks vertically on mobile"
+      ]
+    },
+    {
+      "id": "US-003",
+      "title": "Research page",
+      "priority": 3,
+      "passes": true,
+      "acceptanceCriteria": [
+        "research.html exists with research area cards",
+        "data/research.json contains research topics with descriptions",
+        "Cards rendered dynamically from JSON data",
+        "Research areas include: 3D point cloud, deep learning, scaffold safety, UAV, digital twin, robotics",
+        "Page is responsive"
+      ]
+    },
+    {
+      "id": "US-004",
+      "title": "Publications page",
+      "priority": 4,
+      "passes": true,
+      "acceptanceCriteria": [
+        "publications.html exists with categorized publication listings",
+        "data/publications.json contains all publications from ICON Lab site",
+        "Publications rendered dynamically from JSON",
+        "Sections: SCIE Journals, International Conferences, Domestic Conferences, Patents, Software Registrations",
+        "Each publication shows authors, year, title, venue",
+        "Page is responsive"
+      ]
+    },
+    {
+      "id": "US-005",
+      "title": "Members page",
+      "priority": 5,
+      "passes": true,
+      "acceptanceCriteria": [
+        "members.html exists with professor and student sections",
+        "data/members.json contains member data",
+        "Professor section shows full profile: name, title, education, experience, email",
+        "Students section shows undergraduate interns with names and affiliations",
+        "Graduate students section shows recruiting message",
+        "Page is responsive"
+      ]
+    },
+    {
+      "id": "US-006",
+      "title": "Teaching and Contact pages",
+      "priority": 6,
+      "passes": true,
+      "acceptanceCriteria": [
+        "teaching.html exists with semester-organized course tables",
+        "contact.html exists with address, phone, email, and embedded map placeholder",
+        "Teaching data includes Spring 2026 and Fall 2025 courses",
+        "Contact shows both Korean and English addresses",
+        "Pages are responsive"
+      ]
+    },
+    {
+      "id": "US-007",
+      "title": "Korean language pages",
+      "priority": 7,
+      "passes": true,
+      "acceptanceCriteria": [
+        "ko/ directory exists with Korean versions of all pages",
+        "Korean pages have identical structure but Korean UI text",
+        "Language toggle from Korean pages links back to English root pages",
+        "Navigation labels in Korean: 홈, 연구, 논문, 구성원, 강의, 연락처"
+      ]
+    },
+    {
+      "id": "US-008",
+      "title": "GitHub Pages deployment readiness",
+      "priority": 8,
+      "passes": true,
+      "acceptanceCriteria": [
+        "All internal links use relative paths (no absolute URLs)",
+        "No server-side dependencies (pure static files)",
+        "All pages open correctly when served from file system or static server",
+        "favicon.svg or favicon.ico exists"
+      ]
+    }
+  ]
+}

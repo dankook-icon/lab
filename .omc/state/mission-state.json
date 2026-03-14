@@ -1,0 +1,129 @@
+{
+  "updatedAt": "2026-03-14T15:27:44.279Z",
+  "missions": [
+    {
+      "id": "session:2407cac6-6812-4983-9127-5e756cb54478:none",
+      "source": "session",
+      "name": "none",
+      "objective": "Session mission",
+      "createdAt": "2026-03-14T13:26:45.139Z",
+      "updatedAt": "2026-03-14T15:27:44.279Z",
+      "status": "done",
+      "workerCount": 7,
+      "taskCounts": {
+        "total": 7,
+        "pending": 0,
+        "blocked": 0,
+        "inProgress": 0,
+        "completed": 7,
+        "failed": 0
+      },
+      "agents": [
+        {
+          "name": "document-specialist:a622794",
+          "role": "document-specialist",
+          "ownership": "a6227945684f98ae0",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T13:28:39.258Z"
+        },
+        {
+          "name": "architect:a626e0b",
+          "role": "architect",
+          "ownership": "a626e0b13025ca28c",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T13:38:37.810Z"
+        },
+        {
+          "name": "document-specialist:ac0882e",
+          "role": "document-specialist",
+          "ownership": "ac0882eb917e6ccad",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T13:57:08.397Z"
+        },
+        {
+          "name": "document-specialist:a25f722",
+          "role": "document-specialist",
+          "ownership": "a25f72211e86700a3",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T14:50:47.476Z"
+        },
+        {
+          "name": "document-specialist:a2a35c0",
+          "role": "document-specialist",
+          "ownership": "a2a35c0177f642d1e",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T15:17:10.449Z"
+        },
+        {
+          "name": "document-specialist:a8d7b30",
+          "role": "document-specialist",
+          "ownership": "a8d7b303768fd43bf",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T15:22:23.577Z"
+        },
+        {
+          "name": "document-specialist:af29c9e",
+          "role": "document-specialist",
+          "ownership": "af29c9e3e6704ea36",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-14T15:27:44.279Z"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "session-start:a8d7b303768fd43bf:2026-03-14T15:22:06.863Z",
+          "at": "2026-03-14T15:22:06.863Z",
+          "kind": "update",
+          "agent": "document-specialist:a8d7b30",
+          "detail": "started document-specialist:a8d7b30",
+          "sourceKey": "session-start:a8d7b303768fd43bf"
+        },
+        {
+          "id": "session-stop:a8d7b303768fd43bf:2026-03-14T15:22:23.577Z",
+          "at": "2026-03-14T15:22:23.577Z",
+          "kind": "completion",
+          "agent": "document-specialist:a8d7b30",
+          "detail": "completed",
+          "sourceKey": "session-stop:a8d7b303768fd43bf"
+        },
+        {
+          "id": "session-start:af29c9e3e6704ea36:2026-03-14T15:27:31.839Z",
+          "at": "2026-03-14T15:27:31.839Z",
+          "kind": "update",
+          "agent": "document-specialist:af29c9e",
+          "detail": "started document-specialist:af29c9e",
+          "sourceKey": "session-start:af29c9e3e6704ea36"
+        },
+        {
+          "id": "session-stop:af29c9e3e6704ea36:2026-03-14T15:27:44.279Z",
+          "at": "2026-03-14T15:27:44.279Z",
+          "kind": "completion",
+          "agent": "document-specialist:af29c9e",
+          "detail": "completed",
+          "sourceKey": "session-stop:af29c9e3e6704ea36"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# ICON Lab Website - Progress Log
+
+## Iteration 1
+- PRD created with 8 user stories
+- Reference analysis complete:
+  - Style: yongchae.com (plain HTML/CSS/JS, JSON-driven, CSS custom properties, dark mode, responsive)
+  - Content: ICON Lab Google Sites (lab intro, research, publications, members, teaching, contact)
+
+## Iteration 2 - Implementation Complete
+### Files Created:
+- **Data**: data/site.json, data/research.json, data/publications.json, data/members.json, data/teaching.json
+- **CSS**: css/style.css (full design system with CSS custom properties, dark mode, responsive breakpoints)
+- **JS**: js/main.js (theme toggle, mobile nav, JSON loading, dynamic rendering, Intersection Observer animations)
+- **Pages (EN)**: index.html, research.html, publications.html, members.html, teaching.html, contact.html
+- **Pages (KO)**: ko/index.html, ko/research.html, ko/publications.html, ko/members.html, ko/teaching.html, ko/contact.html
+- **Assets**: favicon.svg
+
+### Architecture Decisions:
+- JSON-driven content (same as yongchae.com reference)
+- CSS custom properties for design tokens
+- Language detection via URL path (/ko/ prefix)
+- Single JS file handles all page rendering based on data-page attribute
+- No build tools, no frameworks - pure static HTML/CSS/JS
+
+### Verification:
+- All 20 resources serve HTTP 200
+- All 5 JSON files pass validation
+- All internal links verified (no broken references)
+- All 8 PRD stories marked passes: true

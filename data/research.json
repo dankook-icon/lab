@@ -1,0 +1,56 @@
+[
+  {
+    "id": "point-cloud",
+    "titleEn": "3D Point Cloud Analysis",
+    "titleKo": "3D 포인트 클라우드 분석",
+    "descEn": "Advanced 3D reconstruction and semantic segmentation of point cloud data for construction site monitoring, structural analysis, and automated quality inspection.",
+    "descKo": "건설 현장 모니터링, 구조 분석, 자동 품질 검사를 위한 포인트 클라우드 데이터의 고급 3D 재구성 및 의미론적 분할 연구.",
+    "icon": "cube",
+    "color": "#3B82F6"
+  },
+  {
+    "id": "deep-learning",
+    "titleEn": "Deep Learning for Construction",
+    "titleKo": "건설 딥러닝",
+    "descEn": "Applying deep learning models including semantic segmentation, object detection, and generative adversarial networks for automated construction monitoring and defect inspection.",
+    "descKo": "의미론적 분할, 객체 탐지, 생성적 적대 신경망 등 딥러닝 모델을 활용한 건설 자동 모니터링 및 결함 검사 연구.",
+    "icon": "brain",
+    "color": "#8B5CF6"
+  },
+  {
+    "id": "scaffold-safety",
+    "titleEn": "Scaffold Safety Monitoring",
+    "titleKo": "비계 안전 모니터링",
+    "descEn": "Automated safety inspection and monitoring of scaffold structures using 3D point clouds, computer vision, and sensor fusion technologies.",
+    "descKo": "3D 포인트 클라우드, 컴퓨터 비전, 센서 융합 기술을 활용한 비계 구조물의 자동 안전 검사 및 모니터링 연구.",
+    "icon": "shield",
+    "color": "#10B981"
+  },
+  {
+    "id": "uav",
+    "titleEn": "UAV-Based Inspection",
+    "titleKo": "UAV 기반 검사",
+    "descEn": "Autonomous UAV navigation and image acquisition for close-range inspection of construction structures including scaffolds and bridges.",
+    "descKo": "비계, 교량 등 건설 구조물의 근접 검사를 위한 자율 UAV 항법 및 이미지 취득 연구.",
+    "icon": "drone",
+    "color": "#F59E0B"
+  },
+  {
+    "id": "robotics",
+    "titleEn": "Construction Robotics",
+    "titleKo": "건설 로봇공학",
+    "descEn": "Deploying robot dogs and autonomous systems for automated data collection at construction sites, enabling continuous safety monitoring.",
+    "descKo": "건설 현장에서의 자동 데이터 수집을 위한 로봇 개 및 자율 시스템 배치, 지속적 안전 모니터링 연구.",
+    "icon": "robot",
+    "color": "#EF4444"
+  },
+  {
+    "id": "digital-twin",
+    "titleEn": "Digital Twins & Infrastructure",
+    "titleKo": "디지털 트윈 및 인프라",
+    "descEn": "Creating digital twin models for infrastructure management, climate-resilient solutions, and post-disaster damage assessment using multi-sensor data.",
+    "descKo": "다중 센서 데이터를 활용한 인프라 관리, 기후 복원력 솔루션, 재난 후 피해 평가를 위한 디지털 트윈 모델 구축 연구.",
+    "icon": "building",
+    "color": "#06B6D4"
+  }
+]

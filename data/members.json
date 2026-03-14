@@ -1,0 +1,120 @@
+{
+  "professor": {
+    "nameEn": "Juhyeon Kim, Ph.D.",
+    "nameKo": "김주현",
+    "titleEn": "Assistant Professor",
+    "titleKo": "조교수",
+    "departmentEn": "Department of Civil and Environmental Engineering, Dankook University",
+    "departmentKo": "단국대학교 토목환경공학과",
+    "email": "juhyeon.kim@dankook.ac.kr",
+    "phone": "+82-31-8005-3477",
+    "education": [
+      {
+        "degreeEn": "Ph.D. in Civil and Environmental Engineering",
+        "degreeKo": "토목환경공학 박사",
+        "institutionEn": "Yonsei University",
+        "institutionKo": "연세대학교",
+        "year": "2020–2024",
+        "detailEn": "Dissertation: Advanced 3D Reconstruction with Deep Learning-Based Point Cloud Analysis for Enhanced Monitoring in Construction (Advisor: Dr. Hyoungkwan Kim)",
+        "detailKo": "학위논문: 건설 모니터링 향상을 위한 딥러닝 기반 포인트 클라우드 분석의 고급 3D 재구성 (지도교수: 김형관)"
+      },
+      {
+        "degreeEn": "B.S. in Civil and Environmental Engineering",
+        "degreeKo": "토목환경공학 학사",
+        "institutionEn": "Yonsei University",
+        "institutionKo": "연세대학교",
+        "year": "2016–2020",
+        "detailEn": "",
+        "detailKo": ""
+      }
+    ],
+    "experience": [
+      {
+        "roleEn": "Assistant Professor",
+        "roleKo": "조교수",
+        "orgEn": "Dankook University",
+        "orgKo": "단국대학교",
+        "period": "2025.09–Present"
+      },
+      {
+        "roleEn": "Visiting Scholar",
+        "roleKo": "방문연구원",
+        "orgEn": "University of Texas at Austin",
+        "orgKo": "텍사스대학교 오스틴",
+        "period": "2025.01–2025.08"
+      },
+      {
+        "roleEn": "Research Associate",
+        "roleKo": "연구원",
+        "orgEn": "Yonsei University",
+        "orgKo": "연세대학교",
+        "period": "2024.09–2025.08"
+      },
+      {
+        "roleEn": "Senior Researcher",
+        "roleKo": "선임연구원",
+        "orgEn": "ITHETTO Co., Ltd",
+        "orgKo": "ITHETTO Co., Ltd",
+        "period": "2023.05–2023.12"
+      }
+    ],
+    "awards": [
+      {
+        "titleEn": "Best Paper Award",
+        "titleKo": "우수논문상",
+        "orgEn": "Korea Agency for Infrastructure Technology Advancement",
+        "orgKo": "한국건설기술연구원"
+      }
+    ],
+    "reviewer": ["Automation in Construction", "Journal of Computing in Civil Engineering"]
+  },
+  "postdocs": [],
+  "phdStudents": [],
+  "msStudents": [],
+  "undergraduateInterns": [
+    {
+      "nameEn": "Gunhee Park",
+      "nameKo": "박건희",
+      "roleEn": "Undergraduate Intern",
+      "roleKo": "학부 인턴",
+      "departmentEn": "Civil and Environmental Engineering, Dankook University",
+      "departmentKo": "단국대학교 토목환경공학과"
+    },
+    {
+      "nameEn": "Hyobin Jo",
+      "nameKo": "조효빈",
+      "roleEn": "Undergraduate Intern",
+      "roleKo": "학부 인턴",
+      "departmentEn": "Civil and Environmental Engineering, Dankook University",
+      "departmentKo": "단국대학교 토목환경공학과"
+    },
+    {
+      "nameEn": "Minguk Choi",
+      "nameKo": "최민국",
+      "roleEn": "Undergraduate Intern",
+      "roleKo": "학부 인턴",
+      "departmentEn": "Civil and Environmental Engineering, Dankook University",
+      "departmentKo": "단국대학교 토목환경공학과"
+    },
+    {
+      "nameEn": "Dohun Kim",
+      "nameKo": "김도훈",
+      "roleEn": "Undergraduate Intern",
+      "roleKo": "학부 인턴",
+      "departmentEn": "Civil and Environmental Engineering, Dankook University",
+      "departmentKo": "단국대학교 토목환경공학과"
+    },
+    {
+      "nameEn": "Jaeyoung Kim",
+      "nameKo": "김재영",
+      "roleEn": "Undergraduate Intern",
+      "roleKo": "학부 인턴",
+      "departmentEn": "Civil and Environmental Engineering, Dankook University",
+      "departmentKo": "단국대학교 토목환경공학과"
+    }
+  ],
+  "recruiting": {
+    "messageEn": "We are actively recruiting motivated graduate students (M.S. and Ph.D.) who are interested in smart construction, AI, robotics, and 3D point cloud analysis. Please contact Prof. Kim for more information.",
+    "messageKo": "스마트 건설, AI, 로봇공학, 3D 포인트 클라우드 분석에 관심 있는 대학원생(석사/박사)을 모집하고 있습니다. 자세한 사항은 김주현 교수에게 문의해 주세요."
+  }
+}

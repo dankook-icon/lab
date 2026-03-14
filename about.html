@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소개 - ICON Lab</title>
+  <meta name="description" content="ICON Lab 연구실 소개 - 단국대학교 지능형 건설관리 연구실">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><img src="images/Lab_image_horizon.png" alt="ICON Lab" class="brand-logo"><img src="images/dankook.png" alt="단국대학교" class="brand-logo-univ"></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="about.html" data-nav="about">소개</a></li>
+          <li><a href="members.html" data-nav="members">구성원</a></li>
+          <li><a href="publications.html" data-nav="publications">논문</a></li>
+          <li><a href="teaching.html" data-nav="teaching">강의</a></li>
+          <li><a href="album.html" data-nav="album">앨범</a></li>
+          <li><a href="contact.html" data-nav="contact">연락처</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="en/about.html" class="nav-btn">EN</a>
+          <button class="nav-btn theme-toggle" onclick="toggleTheme()" aria-label="테마 전환"></button>
+        </div>
+      </div>
+      <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="메뉴" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="about.html" data-nav="about">소개</a>
+    <a href="members.html" data-nav="members">구성원</a>
+    <a href="publications.html" data-nav="publications">논문</a>
+    <a href="teaching.html" data-nav="teaching">강의</a>
+    <a href="album.html" data-nav="album">앨범</a>
+    <a href="contact.html" data-nav="contact">연락처</a>
+    <button class="mobile-theme-toggle" onclick="toggleTheme()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>다크 모드 전환</button>
+  </div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1 class="fade-in">소개</h1>
+      <p class="fade-in" data-delay="100">ICON Lab - Intelligent CONstruction Lab</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content-section fade-in">
+      <h2 class="section-title">연구실 소개</h2>
+      <div class="content-section-body">
+        <p>ICON Lab (Intelligent CONstruction Lab)은 <strong>단국대학교 토목환경공학과</strong>에 소속된 연구 그룹으로, 스마트 건설 및 디지털 인프라 관리 분야의 혁신을 선도합니다. 'ICON'은 Intelligent CONstruction의 약자이자, 새로운 길을 개척하는 아이콘을 상징합니다.</p>
+        <p>본 연구실은 <strong>AI, 로봇공학, 3D 포인트 클라우드 분석, 컴퓨터 비전, 디지털 트윈</strong> 등 최첨단 기술을 활용하여 건설 현장 데이터 수집 및 분석, 인프라 안전 모니터링, 지속 가능한 유지 관리 프레임워크를 위한 자동화 솔루션을 연구합니다.</p>
+        <p class="mission">ICON Lab의 궁극적인 목표는 건설 산업의 디지털 전환을 가속화하고, 안전하고 지속 가능한 미래 사회를 위한 지능형 건설 기술의 아이콘이 되는 것입니다.</p>
+        <div class="about-img-wrap fade-in" data-delay="200">
+          <img src="images/Main_research.png" alt="ICON Lab Research Overview" class="about-content-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section fade-in">
+      <h2 class="section-title">주요 연구 분야</h2>
+      <div class="content-section-body">
+        <div class="about-research-grid">
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#3B82F620;color:#3B82F6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3>3D 포인트 클라우드 분석</h3>
+            <p>건설 현장의 3D 재구성 및 의미론적 분할을 통한 자동 모니터링</p>
+          </div>
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#8B5CF620;color:#8B5CF6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5.5 5 7v4h4v-4c3-1.5 5-4 5-7a7 7 0 0 0-7-7z"/><path d="M9 22h6"/></svg>
+            </div>
+            <h3>딥러닝 기반 건설 모니터링</h3>
+            <p>객체 탐지, 의미론적 분할, GAN 등을 활용한 자동 검사 시스템</p>
+          </div>
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#10B98120;color:#10B981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3>비계 안전 모니터링</h3>
+            <p>3D 포인트 클라우드와 컴퓨터 비전을 활용한 자동 안전 검사</p>
+          </div>
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#F59E0B20;color:#F59E0B">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="10" width="8" height="6" rx="1"/><line x1="6" y1="8" x2="4" y2="6"/><line x1="18" y1="8" x2="20" y2="6"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
+            </div>
+            <h3>UAV 기반 구조물 검사</h3>
+            <p>자율 UAV 항법을 통한 비계, 교량 등 근접 검사</p>
+          </div>
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#EF444420;color:#EF4444">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg>
+            </div>
+            <h3>건설 로봇공학</h3>
+            <p>로봇 개를 활용한 건설 현장 자동 데이터 수집 시스템</p>
+          </div>
+          <div class="about-research-item">
+            <div class="about-research-icon" style="background:#06B6D420;color:#06B6D4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><rect x="9" y="14" width="6" height="4"/></svg>
+            </div>
+            <h3>디지털 트윈</h3>
+            <p>다중 센서 데이터 기반 인프라 디지털 트윈 모델 구축</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">ICON Lab</div>
+        <div class="footer-info">
+          단국대학교 토목환경공학과<br>
+          16890 경기도 용인시 수지구 죽전로 152<br>
+          juhyeon.kim@dankook.ac.kr &middot; +82-31-8005-3477
+        </div>
+      </div>
+      <div class="footer-copy">&copy; 2025 ICON Lab</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

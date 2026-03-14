@@ -1,0 +1,277 @@
+{
+  "journals": [
+    {
+      "authors": "Juhyeon Kim and Fernanda Leite",
+      "year": 2026,
+      "title": "A Unified Framework for Automated Damage Assessment in Post-Disaster Built Environments Using LiDAR Point Clouds",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "detail": "106069"
+    },
+    {
+      "authors": "Sunwoong Paik, Jeehoon Kim, Yulin Lian, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2026,
+      "title": "Safety Analysis of Scaffold Joints through Image Generation from Point Cloud Data",
+      "venue": "Journal of Construction Engineering and Management",
+      "detail": "Accepted"
+    },
+    {
+      "authors": "Linchao Luo, Chih-Shen Cheng, William Mobley, Katherine Lieberknecht, Juhyeon Kim, and Fernanda Leite",
+      "year": 2026,
+      "title": "Optimizing Fluvial Flood Mitigation Strategies: A Multi-Objective Approach for Cost-Effective and Socially-aware Infrastructure Feasibility Analysis",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "detail": "106004"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Yulin Lian, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Point Cloud-Based Defect Inspection with Multi-Sensor Fusion and Deep Learning for Advancing Building Construction Quality",
+      "venue": "Journal of Computing in Civil Engineering",
+      "detail": "39(3), 04025022"
+    },
+    {
+      "authors": "Sunwoong Paik, Juhyeon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Safety Analysis and Localization of Scaffold Joints Using UAV-Acquired Images",
+      "venue": "Journal of Construction Engineering and Management",
+      "detail": "151(12), 04025194"
+    },
+    {
+      "authors": "Yohan Kim, Jeehoon Kim, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Superpoint Transformer-based Bridge Component Recognition using UAV-mounted LiDAR and Synthetic Point Cloud Generation",
+      "venue": "Journal of Computing in Civil Engineering",
+      "detail": "39(4), 04025043"
+    },
+    {
+      "authors": "Duho Chung, Juhyeon Kim, Sunwoong Paik, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Automated system of scaffold point cloud data acquisition using a robot dog",
+      "venue": "Automation in Construction",
+      "detail": "170, 105944"
+    },
+    {
+      "authors": "Sunwoong Paik, Juhyeon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Autonomous UAV Navigation for Close-Range Image Acquisition of Scaffold Joints",
+      "venue": "Journal of Construction Engineering and Management",
+      "detail": "Accepted"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Sunwoong Paik, and Hyoungkwan Kim",
+      "year": 2024,
+      "title": "Point cloud registration considering safety nets during scaffold installation using sensor fusion and deep learning",
+      "venue": "Automation in Construction",
+      "detail": "159, 105277"
+    },
+    {
+      "authors": "Jeehoon Kim, Juhyeon Kim, Nahye Koo, and Hyoungkwan Kim",
+      "year": 2024,
+      "title": "Automating scaffold safety inspections using semantic analysis of 3D point clouds",
+      "venue": "Automation in Construction",
+      "detail": "166, 105603"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2023,
+      "title": "3D reconstruction of large-scale scaffolds with synthetic data generation and an upsampling adversarial network",
+      "venue": "Automation in Construction",
+      "detail": "156, 105108"
+    },
+    {
+      "authors": "Juhyeon Kim, Duho Chung, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "Deep learning-based 3D reconstruction of scaffolds using a robot dog",
+      "venue": "Automation in Construction",
+      "detail": "134, 104092"
+    }
+  ],
+  "conferences": [
+    {
+      "authors": "Juhyeon Kim, Duho Chung, Jeehoon Kim, and Hyoungkwan Kim",
+      "year": 2025,
+      "title": "Integrated Framework for Scaffold Monitoring: From Point Cloud Acquisition to Safety Verification",
+      "venue": "ISARC 2025",
+      "location": "Montreal, Canada"
+    },
+    {
+      "authors": "Sean Murphy, Chih-Shen Cheng, Juhyeon Kim, and Fernanda Leite",
+      "year": 2025,
+      "title": "Enhancing resilience to coastal hazards: an analysis of resources, tools, and processes to improve land use decision-making in the United States",
+      "venue": "ASCE CRC 2025",
+      "location": "Montreal, Canada"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Yulin Lian, and Hyoungkwan Kim",
+      "year": 2024,
+      "title": "Automated Defect Inspection in Building Construction with Multi-Sensor Fusion and Deep Learning",
+      "venue": "ISARC 2024",
+      "location": "Lille, France"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Sunwoong Paik, and Hyoungkwan Kim",
+      "year": 2023,
+      "title": "Sensor Fusion-based Point Clouds Registration Considering Safety Net During Scaffold Installation",
+      "venue": "i3CE 2023",
+      "location": "Oregon, USA"
+    },
+    {
+      "authors": "Jeehoon Kim, Sunwoong Paik, Yulin Lian, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2023,
+      "title": "Transformation of Point Clouds to Images for Safety Analysis of Scaffold Joints",
+      "venue": "ISARC 2023",
+      "location": "Chennai, India"
+    },
+    {
+      "authors": "Juhyeon Kim, Jeehoon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "Large-scale Scaffold Point Cloud Data Analysis Framework Using Synthetic Data Augmentation and an Upsampling Adversarial Network",
+      "venue": "CONVR 2022",
+      "location": "Seoul, Korea"
+    },
+    {
+      "authors": "Nahye Koo, Juhyeon Kim, Sunwoong Paik, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "One-stage Instance Segmentation of Scaffold Elements in UAV Acquired Images for Safety Monitoring",
+      "venue": "CONVR 2022",
+      "location": "Seoul, Korea"
+    },
+    {
+      "authors": "Duho Chung, Sunwoong Paik, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "Autonomous Operation of a Robot Dog for Point Cloud Data Acquisition of Scaffolds",
+      "venue": "ISARC 2022",
+      "location": "Bogota, Colombia"
+    },
+    {
+      "authors": "Jeehoon Kim, Juhyeon Kim, Nahye Koo, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "Automated Checking of Scaffold Safety Regulations using Multi-Class 3D Segmentation",
+      "venue": "ISARC 2022",
+      "location": "Bogota, Colombia"
+    },
+    {
+      "authors": "Sunwoong Paik, Juhyeon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2022,
+      "title": "Automated Analysis of Scaffold Joint Installation Status of UAV-Acquired Images",
+      "venue": "ICCEPM 2022",
+      "location": "Las Vegas, USA"
+    },
+    {
+      "authors": "Juhyeon Kim, DuHo Chung, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2021,
+      "title": "Semantic segmentation of 3D point cloud data acquired from robot dog for scaffold monitoring",
+      "venue": "ISARC 2021",
+      "location": "Virtual"
+    }
+  ],
+  "domesticConferences": [
+    {
+      "authors": "Sunwoong Paik, Juhyeon Kim, Yohan Kim, and Hyoungkwan Kim",
+      "year": 2024,
+      "title": "Detection, Identification, and Matching of Scaffold Joints Using UAV-Acquired Data",
+      "venue": "2024 Korea Institute of Construction Engineering and Management Conference"
+    },
+    {
+      "authors": "Yulin Lian, Yohan Kim, Sunwoong Paik, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2024,
+      "title": "Scaffold Inspection Using UAV Equipped with a LiDAR",
+      "venue": "2024 Korean Society of Civil Engineers Conference"
+    },
+    {
+      "authors": "Yohan Kim, Jeehoon Kim, Juhyeon Kim, and Hyoungkwan Kim",
+      "year": 2023,
+      "title": "3D Semantic Segmentation of Road Bridge Components Using an Unmanned Aerial Vehicle Equipped with Mobile LiDAR",
+      "venue": "2023 Korea Institute of Construction Engineering and Management Conference"
+    }
+  ],
+  "patents": [
+    {
+      "number": "10-2024-0031724",
+      "titleEn": "Sensor Fusion and Deep Learning-Based Point Cloud Registration for 3D Reconstruction of Scaffolds with Safety Net Consideration",
+      "titleKo": "안전망을 고려한 비계의 3D 재구성을 위한 센서 융합 및 딥러닝 기반 포인트 클라우드 정합",
+      "year": 2024,
+      "type": "application"
+    },
+    {
+      "number": "10-2024-0055265",
+      "titleEn": "Safety Status Analysis System for Scaffolding Joints Using Rule-Based Classified Images",
+      "titleKo": "규칙 기반 분류 이미지를 이용한 비계 조인트 안전 상태 분석 시스템",
+      "year": 2024,
+      "type": "application"
+    },
+    {
+      "number": "10-2024-0055264",
+      "titleEn": "System for Generating Safety Status Maps of Scaffolding Joints through Rule-Based Image Classification and Location Estimation",
+      "titleKo": "규칙 기반 이미지 분류 및 위치 추정을 통한 비계 조인트 안전 상태 지도 생성 시스템",
+      "year": 2024,
+      "type": "application"
+    },
+    {
+      "number": "10-2023-0097251",
+      "titleEn": "3D Modeling System for Temporary Structures Using Synthetic Point Cloud Data and a Generative Adversarial Network",
+      "titleKo": "합성 포인트 클라우드 데이터와 생성적 적대 신경망을 이용한 가설 구조물 3D 모델링 시스템",
+      "year": 2023,
+      "type": "application"
+    },
+    {
+      "number": "10-2023-0168808",
+      "titleEn": "Bridge Component Extraction System Using 3D Semantic Segmentation with Mobile LiDAR",
+      "titleKo": "모바일 LiDAR를 이용한 3D 의미론적 분할 기반 교량 부재 추출 시스템",
+      "year": 2023,
+      "type": "application"
+    },
+    {
+      "number": "10-2022-0180174",
+      "titleEn": "Safety Inspection System of Temporary Structures Using Semantic Segmentation of Point Cloud Data",
+      "titleKo": "포인트 클라우드 데이터의 의미론적 분할을 이용한 가설 구조물 안전 검사 시스템",
+      "year": 2022,
+      "type": "application"
+    },
+    {
+      "number": "10-2022-0086022",
+      "titleEn": "Automated System for Collecting Point Cloud Data Using a Mobile Robot",
+      "titleKo": "이동 로봇을 이용한 포인트 클라우드 데이터 자동 수집 시스템",
+      "year": 2022,
+      "type": "application"
+    },
+    {
+      "number": "10-2654087",
+      "titleEn": "3D Model Generation Based on Point Cloud Data Acquisition and a Deep Learning Model Using a Mobile Robot",
+      "titleKo": "이동 로봇을 이용한 포인트 클라우드 데이터 취득 및 딥러닝 모델 기반 3D 모델 생성",
+      "year": 2021,
+      "type": "registered"
+    }
+  ],
+  "software": [
+    {
+      "number": "C-2024-041656",
+      "titleEn": "Deep Learning-Based Point Cloud Data Analysis and Automatic Modeling Generation Module Using 3D Patches",
+      "titleKo": "3D 패치를 이용한 딥러닝 기반 포인트 클라우드 데이터 분석 및 자동 모델링 생성 모듈",
+      "year": 2024
+    },
+    {
+      "number": "C-2023-043698",
+      "titleEn": "Synthetic Point Cloud Data Generation Module for Temporary Structures",
+      "titleKo": "가설 구조물을 위한 합성 포인트 클라우드 데이터 생성 모듈",
+      "year": 2023
+    },
+    {
+      "number": "C-2023-043897",
+      "titleEn": "Point Cloud-to-Image Conversion and Image-to-Point Cloud Re-projection Module",
+      "titleKo": "포인트 클라우드-이미지 변환 및 이미지-포인트 클라우드 재투영 모듈",
+      "year": 2023
+    },
+    {
+      "number": "C-2021-043278",
+      "titleEn": "Deep Learning-Based 3D Semantic Segmentation Module for Temporary Structures",
+      "titleKo": "딥러닝 기반 가설 구조물 3D 의미론적 분할 모듈",
+      "year": 2021
+    },
+    {
+      "number": "C-2020-042227-2",
+      "titleEn": "Temporary Structure Modeling Generation Module",
+      "titleKo": "가설 구조물 모델링 생성 모듈",
+      "year": 2020
+    }
+  ]
+}

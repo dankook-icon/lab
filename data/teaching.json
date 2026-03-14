@@ -1,0 +1,56 @@
+[
+  {
+    "semester": "Spring 2026",
+    "semesterKo": "2026-1학기",
+    "courses": [
+      {
+        "nameEn": "Engineering Mentoring",
+        "nameKo": "공학멘토링",
+        "gradeEn": "Grades 1–4",
+        "gradeKo": "1~4학년"
+      },
+      {
+        "nameEn": "Adventure Design",
+        "nameKo": "어드벤처디자인",
+        "gradeEn": "Grade 2",
+        "gradeKo": "2학년"
+      },
+      {
+        "nameEn": "Advanced Infrastructure Sensing",
+        "nameKo": "첨단인프라센싱",
+        "gradeEn": "Grade 2",
+        "gradeKo": "2학년"
+      },
+      {
+        "nameEn": "Construction Planning and Management",
+        "nameKo": "건설계획및경영관리",
+        "gradeEn": "Grade 4",
+        "gradeKo": "4학년"
+      }
+    ]
+  },
+  {
+    "semester": "Fall 2025",
+    "semesterKo": "2025-2학기",
+    "courses": [
+      {
+        "nameEn": "Engineering Mentoring",
+        "nameKo": "공학멘토링",
+        "gradeEn": "Grades 1–4",
+        "gradeKo": "1~4학년"
+      },
+      {
+        "nameEn": "Smart Construction Technology",
+        "nameKo": "스마트건설기술",
+        "gradeEn": "Grade 4",
+        "gradeKo": "4학년"
+      },
+      {
+        "nameEn": "Smart Infrastructure Maintenance Management",
+        "nameKo": "인프라스마트유지관리",
+        "gradeEn": "Grade 4",
+        "gradeKo": "4학년"
+      }
+    ]
+  }
+]

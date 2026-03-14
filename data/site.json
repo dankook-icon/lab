@@ -1,0 +1,23 @@
+{
+  "lab": {
+    "name": "ICON Lab",
+    "fullName": "Intelligent CONstruction Lab",
+    "nameKo": "지능형 건설관리 연구실",
+    "institution": "Dankook University",
+    "institutionKo": "단국대학교",
+    "department": "Department of Civil and Environmental Engineering",
+    "departmentKo": "토목환경공학과",
+    "introEn": "ICON Lab (Intelligent CONstruction Lab) is a research group leading innovation in smart construction and digital infrastructure management. 'ICON' not only stands for Intelligent CONstruction but also symbolizes an icon that paves new pathways.",
+    "introKo": "ICON Lab (Intelligent CONstruction Lab)은 스마트 건설 및 디지털 인프라 관리 분야의 혁신을 선도하는 연구 그룹입니다. 'ICON'은 Intelligent CONstruction의 약자이자, 새로운 길을 개척하는 아이콘을 상징합니다.",
+    "missionEn": "The ultimate goal of ICON Lab is to accelerate the digital transformation of the construction industry and to become an icon of intelligent construction technologies for a safe and sustainable future society.",
+    "missionKo": "ICON Lab의 궁극적인 목표는 건설 산업의 디지털 전환을 가속화하고, 안전하고 지속 가능한 미래 사회를 위한 지능형 건설 기술의 아이콘이 되는 것입니다.",
+    "descriptionEn": "The laboratory applies cutting-edge technologies including AI, robotics, 3D point cloud analysis, computer vision, and digital twins to create automated solutions for construction site data collection and analysis, infrastructure safety monitoring, and sustainable maintenance frameworks.",
+    "descriptionKo": "본 연구실은 AI, 로봇공학, 3D 포인트 클라우드 분석, 컴퓨터 비전, 디지털 트윈 등 최첨단 기술을 활용하여 건설 현장 데이터 수집 및 분석, 인프라 안전 모니터링, 지속 가능한 유지 관리 프레임워크를 위한 자동화 솔루션을 연구합니다."
+  },
+  "contact": {
+    "addressEn": "152, Jukjeon-ro, Suji-gu, Yongin-si, Gyeonggi-do 16890, Korea",
+    "addressKo": "16890 경기도 용인시 수지구 죽전로 152 (죽전동 126)",
+    "phone": "+82-31-8005-3477",
+    "email": "juhyeon.kim@dankook.ac.kr"
+  }
+}
