@@ -388,6 +388,12 @@ strong { font-weight: 600; color: var(--color-text); }
   margin-bottom: 8px;
 }
 
+.mobile-br { display: none; }
+
+@media (max-width: 768px) {
+  .mobile-br { display: block; }
+}
+
 .hero-banner-content .hero-institution {
   font-size: 0.95rem;
   color: rgba(255,255,255,0.65);
