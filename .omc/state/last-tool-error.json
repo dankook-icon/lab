@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /mnt/c/yong/Juhyeon_homepage\\n\\n# Fix all HTML files with inline 720px max-width\\nfor f in index.html publications.html teaching.html en/index.html en/publications.html en/teaching.html...",
-  "error": "Exit code 1\nsed: preserving permissions for ‘./sedFuAome’: Operation not permitted\nsed: preserving permissions for ‘./seddicW4H’: Operation not permitted\nsed: preserving permissions for ‘./sedWvXitQ’: Operation not permitted\nsed: preserving permissions for ‘en/sedgGofF5’: Operation not permitted\nsed: preserving permissions for ‘en/sedsw8kN6’: Operation not permitted\nsed: preserving permissions for ‘en/seduj2jLb’: Operation not permitted\nsed: preserving permissions for ‘css/sedZY5nFP’: Operation ...",
-  "timestamp": "2026-03-14T13:50:59.345Z",
-  "retry_count": 1
-}
