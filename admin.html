@@ -244,6 +244,73 @@ body {
 .folder-setting label { font-weight: 600; white-space: nowrap; font-size: 13px; }
 .folder-setting input { flex: 1; }
 
+/* ALBUM EDITOR */
+.album-edit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.album-edit-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .15s;
+}
+.album-edit-item:hover {
+  box-shadow: var(--shadow-md);
+}
+.album-edit-thumb {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #e8ebf0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.album-edit-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.album-edit-delete {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(220,38,38,0.85);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.album-edit-item:hover .album-edit-delete {
+  opacity: 1;
+}
+.album-edit-fields {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.album-edit-fields input {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 12px;
+  background: var(--surface);
+}
+
 /* SAVE BAR */
 .save-bar {
   padding: 16px 0; margin-top: 8px;
@@ -967,29 +1034,32 @@ function renderAlbum() {
   var html = '';
   (albumData || []).forEach(function(cat, ci) {
     html += '<div class="card">'
-      + '<button class="remove-btn" onclick="removeAlbumCategory(' + ci + ')" style="float:right">&times;</button>'
-      + '<div class="card-title">카테고리 #' + (ci + 1) + '</div>'
+      + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'
+      + '<div class="card-title" style="margin-bottom:0;padding-bottom:0;border:none">카테고리 #' + (ci + 1) + '</div>'
+      + '<button class="btn btn-danger btn-sm" onclick="removeAlbumCategory(' + ci + ')">카테고리 삭제</button>'
+      + '</div>'
       + '<div class="form-row">'
       + '<div class="form-group"><label>제목 (한국어)</label><input value="' + esc(cat.title) + '" onchange="albumData[' + ci + '].title=this.value"></div>'
       + '<div class="form-group"><label>제목 (영어)</label><input value="' + esc(cat.titleEn) + '" onchange="albumData[' + ci + '].titleEn=this.value"></div>'
       + '</div>'
-      + '<div class="card-subtitle">사진 목록</div>';
+      + '<div class="card-subtitle" style="margin-top:16px">사진 (' + (cat.photos || []).length + '장)</div>'
+      + '<div class="album-edit-grid">';
     (cat.photos || []).forEach(function(photo, pi) {
-      html += '<div class="list-item">'
-        + '<button class="remove-btn" onclick="removePhoto(' + ci + ',' + pi + ')">&times;</button>'
-        + '<div class="form-row">'
-        + '<div class="form-group"><label>파일경로 (예: images/album/photo1.webp)</label><input value="' + esc(photo.src) + '" onchange="albumData[' + ci + '].photos[' + pi + '].src=this.value"></div>'
+      html += '<div class="album-edit-item">'
+        + '<div class="album-edit-thumb">'
+        + '<img src="' + esc(photo.src) + '" onerror="this.style.display=\'none\'">'
+        + '<button class="album-edit-delete" onclick="removePhoto(' + ci + ',' + pi + ')" title="삭제">&times;</button>'
         + '</div>'
-        + '<div class="form-row">'
-        + '<div class="form-group"><label>설명 (한국어)</label><input value="' + esc(photo.caption) + '" onchange="albumData[' + ci + '].photos[' + pi + '].caption=this.value"></div>'
-        + '<div class="form-group"><label>설명 (영어)</label><input value="' + esc(photo.captionEn) + '" onchange="albumData[' + ci + '].photos[' + pi + '].captionEn=this.value"></div>'
-        + '</div>'
-        + '<div class="form-row">'
-        + '<div class="form-group"><label>날짜</label><input value="' + esc(photo.date) + '" onchange="albumData[' + ci + '].photos[' + pi + '].date=this.value" placeholder="2025-03-15"></div>'
+        + '<div class="album-edit-fields">'
+        + '<input value="' + esc(photo.src) + '" onchange="albumData[' + ci + '].photos[' + pi + '].src=this.value" placeholder="파일 경로" style="font-size:11px;color:var(--text-3)">'
+        + '<input value="' + esc(photo.caption) + '" onchange="albumData[' + ci + '].photos[' + pi + '].caption=this.value" placeholder="설명 (한국어)">'
+        + '<input value="' + esc(photo.captionEn) + '" onchange="albumData[' + ci + '].photos[' + pi + '].captionEn=this.value" placeholder="설명 (영어)">'
+        + '<input value="' + esc(photo.date) + '" onchange="albumData[' + ci + '].photos[' + pi + '].date=this.value" placeholder="날짜 (2025-03-15)">'
         + '</div>'
         + '</div>';
     });
-    html += '<div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPhoto(' + ci + ')">+ 사진 추가</button></div>'
+    html += '</div>'
+      + '<div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPhoto(' + ci + ')">+ 사진 추가</button></div>'
       + '</div>';
   });
   c.innerHTML = html;
@@ -999,17 +1069,46 @@ function addAlbumCategory() {
   albumData.push({title: '', titleEn: '', photos: []});
   renderAlbum();
 }
-function removeAlbumCategory(ci) {
+async function removeAlbumCategory(ci) {
+  if (!confirm('이 카테고리와 모든 사진을 삭제하시겠습니까?')) return;
+  var cat = albumData[ci];
+  if (rootDirHandle && cat.photos) {
+    for (var i = 0; i < cat.photos.length; i++) {
+      await deleteFileFromDisk(cat.photos[i].src);
+    }
+  }
   albumData.splice(ci, 1);
   renderAlbum();
+  showToast('카테고리 삭제 완료');
 }
 function addPhoto(ci) {
   albumData[ci].photos.push({src: '', caption: '', captionEn: '', date: ''});
   renderAlbum();
 }
-function removePhoto(ci, pi) {
+async function removePhoto(ci, pi) {
+  var photo = albumData[ci].photos[pi];
+  if (rootDirHandle && photo.src) {
+    await deleteFileFromDisk(photo.src);
+  }
   albumData[ci].photos.splice(pi, 1);
   renderAlbum();
+  showToast('사진 삭제 완료');
+}
+
+async function deleteFileFromDisk(filepath) {
+  if (!rootDirHandle) return false;
+  try {
+    var parts = filepath.split('/');
+    var filename = parts.pop();
+    var dir = rootDirHandle;
+    for (var i = 0; i < parts.length; i++) {
+      dir = await dir.getDirectoryHandle(parts[i]);
+    }
+    await dir.removeEntry(filename);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function saveAlbum() {

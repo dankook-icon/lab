@@ -775,5 +775,48 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTeaching();
   } else if (page === 'contact') {
     renderContact();
+  } else if (page === 'album') {
+    renderAlbum();
   }
 });
+
+// Render album
+async function renderAlbum() {
+  const container = document.getElementById('album-content');
+  if (!container) return;
+  const data = await loadJSON(getDataPath() + 'album.json');
+  if (!data || !data.length) {
+    container.innerHTML = `<div class="album-empty fade-in">
+      <div class="album-empty-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+      </div>
+      <h3>${getLang() === 'ko' ? '사진이 곧 업로드될 예정입니다' : 'Photos coming soon'}</h3>
+      <p>${getLang() === 'ko' ? '연구실 활동, 세미나, 학술대회 등의 사진이 이곳에 공유됩니다.' : 'Photos of lab activities, seminars, and conferences will be shared here.'}</p>
+    </div>`;
+    initFadeIn();
+    return;
+  }
+  const lang = getLang();
+  const imgBase = window.location.pathname.includes('/en/') ? '../' : '';
+  let html = '';
+  data.forEach(cat => {
+    if (!cat.photos || !cat.photos.length) return;
+    html += `<div class="album-category fade-in">
+      <h2 class="section-title">${lang === 'ko' ? cat.title : cat.titleEn}</h2>
+      <div class="album-grid">`;
+    cat.photos.forEach((photo, i) => {
+      html += `<div class="album-item fade-in" data-delay="${i * 80}">
+        <img src="${imgBase}${photo.src}" alt="${lang === 'ko' ? photo.caption : photo.captionEn}" class="album-photo" loading="lazy">
+        ${photo.caption ? `<div class="album-caption">${lang === 'ko' ? photo.caption : photo.captionEn}</div>` : ''}
+        ${photo.date ? `<div class="album-date">${photo.date}</div>` : ''}
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+  container.innerHTML = html;
+  initFadeIn();
+}

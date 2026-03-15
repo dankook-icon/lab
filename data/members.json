@@ -105,8 +105,7 @@
         "orgEn": "Korean Society of Civil Engineers",
         "orgKo": "대한토목학회"
       }
-    ],
-    "scholarships": []
+    ]
   },
   "postdocs": [],
   "phdStudents": [],
@@ -154,7 +153,7 @@
     }
   ],
   "recruiting": {
-    "messageEn": "We are actively recruiting motivated graduate students (M.S. and Ph.D.) who are interested in smart construction, AI, robotics, and 3D point cloud analysis. Please contact Prof. Kim for more information.",
-    "messageKo": "스마트 건설, AI, 로봇공학, 3D 포인트 클라우드 분석에 관심 있는 대학원생(석사/박사)을 모집하고 있습니다. 자세한 사항은 김주현 교수에게 문의해 주세요."
+    "messageKo": "스마트 건설, AI, 로봇공학, 3D 포인트 클라우드 분석에 관심 있는 대학원생(석사/박사)을 모집하고 있습니다. 자세한 사항은 김주현 교수에게 문의해 주세요.",
+    "messageEn": "We are actively recruiting motivated graduate students (M.S. and Ph.D.) who are interested in smart construction, AI, robotics, and 3D point cloud analysis. Please contact Prof. Kim for more information."
   }
 }
