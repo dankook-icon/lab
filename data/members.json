@@ -118,28 +118,40 @@
     ],
     "committees": [
       {
-        "roleEn": "Committee Member (Academic Exchange, Academic Paper Editorial, Infrastructure)",
-        "roleKo": "위원 (학술교류, 학술논문편집, 인프라)",
+        "roleEn": "Academic Exchange Committee Member",
+        "roleKo": "학술교류위원회 위원",
         "orgEn": "Korean Construction Management Association",
         "orgKo": "한국건설관리학회"
       },
       {
-        "roleEn": "Committee Member (AI Committee)",
-        "roleKo": "위원 (AI 위원회)",
+        "roleEn": "Paper Editorial Committee Member",
+        "roleKo": "논문편집위원회 위원",
+        "orgEn": "Korean Construction Management Association",
+        "orgKo": "한국건설관리학회"
+      },
+      {
+        "roleEn": "Infrastructure Committee Member",
+        "roleKo": "인프라위원회 위원",
+        "orgEn": "Korean Construction Management Association",
+        "orgKo": "한국건설관리학회"
+      },
+      {
+        "roleEn": "AI Committee Member",
+        "roleKo": "AI위원회 위원",
         "orgEn": "Korean Construction Automation and Robotics Society",
-        "orgKo": "한국건설자동화로봇학회"
+        "orgKo": "한국건설자동로보틱스학회"
       },
       {
-        "roleEn": "Committee Member (Academic Paper Editorial)",
-        "roleKo": "위원 (학술논문편집)",
+        "roleEn": "Paper Editorial Committee Member",
+        "roleKo": "논문편집위원회 위원",
         "orgEn": "Korea Purchasing and Procurement Association",
-        "orgKo": "한국조달학회"
+        "orgKo": "한국구매조달학회"
       },
       {
-        "roleEn": "Committee Member (Technical Education)",
-        "roleKo": "위원 (기술교육)",
-        "orgEn": "Korea Civil Engineers Association",
-        "orgKo": "한국토목기술인회"
+        "roleEn": "Technical Education Committee Member",
+        "roleKo": "기술교육위원회 위원",
+        "orgEn": "Korean Society of Civil Engineers",
+        "orgKo": "대한토목학회"
       }
     ],
     "scholarships": []

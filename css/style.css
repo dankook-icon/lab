@@ -619,8 +619,8 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .professor-photo {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: var(--radius-lg);
   object-fit: cover;
   flex-shrink: 0;
@@ -643,6 +643,59 @@ strong { font-weight: 600; color: var(--color-text); }
 .professor-contact-inline a {
   color: var(--color-accent);
   font-weight: 500;
+}
+
+.professor-contact-block {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.professor-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+}
+
+.professor-contact-row svg {
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+}
+
+.professor-contact-row a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.professor-social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.professor-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+}
+
+.professor-social-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.professor-social-btn svg {
+  flex-shrink: 0;
 }
 
 .professor-details { margin-top: 24px; }
@@ -1094,7 +1147,7 @@ strong { font-weight: 600; color: var(--color-text); }
   .contact-grid { grid-template-columns: 1fr; }
 
   .professor-header { flex-direction: column; align-items: center; text-align: center; }
-  .professor-photo { width: 140px; height: 140px; }
+  .professor-photo { width: 160px; height: 160px; }
   .professor-contact-inline { justify-content: center; }
 
   .footer-inner { flex-direction: column; text-align: center; align-items: stretch; }

@@ -232,10 +232,25 @@ async function renderMembers() {
           <h2>${lang === 'ko' ? prof.nameKo : prof.nameEn}</h2>
           <div class="title-text">${lang === 'ko' ? prof.titleKo : prof.titleEn}</div>
           <div class="dept-text">${lang === 'ko' ? prof.departmentKo : prof.departmentEn}</div>
-          <div class="professor-contact-inline">
-            <a href="mailto:${prof.email}">${prof.email}</a>
-            <span>&middot;</span>
-            <span>${prof.phone}</span>
+          <div class="professor-contact-block">
+            <div class="professor-contact-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+              <a href="mailto:${prof.email}">${prof.email}</a>
+            </div>
+            <div class="professor-contact-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>${prof.phone}</span>
+            </div>
+            <div class="professor-social-links">
+              <a href="https://scholar.google.com/citations?user=igUpCwEAAAAJ&hl" target="_blank" rel="noopener" class="professor-social-btn" title="Google Scholar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14z"/></svg>
+                Google Scholar
+              </a>
+              <a href="https://www.linkedin.com/in/juhyeon-kim-1587291a7/" target="_blank" rel="noopener" class="professor-social-btn" title="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
