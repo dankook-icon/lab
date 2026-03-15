@@ -258,7 +258,11 @@ async function renderMembers() {
         <div class="detail-section">
           <h4>${lang === 'ko' ? '학력' : 'Education'}</h4>
           <ul class="detail-list">
-            ${prof.education.map(e => `<li><span class="period">${e.year}</span><span>${lang === 'ko' ? e.degreeKo : e.degreeEn}, ${lang === 'ko' ? e.institutionKo : e.institutionEn}${e.detailEn ? '<br><small style="color:var(--color-text-subtle)">' + (lang === 'ko' ? e.detailKo : e.detailEn) + '</small>' : ''}</span></li>`).join('')}
+            ${prof.education.map(e => {
+              const detail = lang === 'ko' ? e.detailKo : e.detailEn;
+              const detailHtml = detail ? detail.split(' | ').map(d => '<br><small style="color:var(--color-text-subtle)">' + d + '</small>').join('') : '';
+              return `<li><span class="period">${e.year}</span><span>${lang === 'ko' ? e.degreeKo : e.degreeEn}, ${lang === 'ko' ? e.institutionKo : e.institutionEn}${detailHtml}</span></li>`;
+            }).join('')}
           </ul>
         </div>
         <div class="detail-section">

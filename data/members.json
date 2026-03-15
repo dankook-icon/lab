@@ -15,8 +15,8 @@
         "institutionEn": "Yonsei University",
         "institutionKo": "연세대학교",
         "year": "2020–2024",
-        "detailEn": "Dissertation: Advanced 3D Reconstruction with Deep Learning-Based Point Cloud Analysis for Enhanced Monitoring in Construction (Advisor: Dr. Hyoungkwan Kim)",
-        "detailKo": "학위논문: 건설 모니터링 향상을 위한 딥러닝 기반 포인트 클라우드 분석의 고급 3D 재구성 (지도교수: 김형관)"
+        "detailEn": "Advisor: Dr. Hyoungkwan Kim | Dissertation: Advanced 3D Reconstruction with Deep Learning-Based Point Cloud Analysis for Enhanced Monitoring in Construction | Yonsei Outstanding Student (Graduate Level)",
+        "detailKo": "지도교수: 김형관 | 학위논문: 건설 모니터링 향상을 위한 딥러닝 기반 포인트 클라우드 분석의 고급 3D 재구성 | 연세 우수학생 (대학원)"
       },
       {
         "degreeEn": "B.S. in Civil and Environmental Engineering",
@@ -24,8 +24,8 @@
         "institutionEn": "Yonsei University",
         "institutionKo": "연세대학교",
         "year": "2016–2020",
-        "detailEn": "",
-        "detailKo": ""
+        "detailEn": "Yonsei Outstanding Student (Undergraduate Level)",
+        "detailKo": "연세 우수학생 (학부)"
       }
     ],
     "experience": [
@@ -58,56 +58,8 @@
         "period": "2023.05–2023.12"
       }
     ],
-    "awards": [
-      {
-        "titleEn": "Best Paper Award",
-        "titleKo": "우수논문상",
-        "orgEn": "Korea Agency for Infrastructure Technology Advancement",
-        "orgKo": "한국건설기술연구원"
-      },
-      {
-        "titleEn": "Excellent Academic Paper Award",
-        "titleKo": "우수학술논문상",
-        "orgEn": "Yonsei University",
-        "orgKo": "연세대학교"
-      },
-      {
-        "titleEn": "CEE Best Paper of the Year",
-        "titleKo": "CEE 올해의 논문상",
-        "orgEn": "Yonsei University",
-        "orgKo": "연세대학교"
-      },
-      {
-        "titleEn": "Yonsei Young Researcher Fellowship",
-        "titleKo": "연세 젊은 연구자 펠로우십",
-        "orgEn": "Korea Ministry of Education",
-        "orgKo": "교육부"
-      },
-      {
-        "titleEn": "Best Paper Award",
-        "titleKo": "우수논문상",
-        "orgEn": "School of Civil and Environmental Engineering, Yonsei University",
-        "orgKo": "연세대학교 토목환경공학부"
-      },
-      {
-        "titleEn": "Certificate of Commendation for Excellent Students",
-        "titleKo": "우수학생 표창장",
-        "orgEn": "Korean Society of Civil Engineers",
-        "orgKo": "대한토목학회"
-      },
-      {
-        "titleEn": "Yonsei Outstanding Student Scholarship (Graduate Level)",
-        "titleKo": "연세 우수학생 장학금 (대학원)",
-        "orgEn": "Yonsei University",
-        "orgKo": "연세대학교"
-      },
-      {
-        "titleEn": "Yonsei Outstanding Student Scholarship (Undergraduate Level)",
-        "titleKo": "연세 우수학생 장학금 (학부)",
-        "orgEn": "Yonsei University",
-        "orgKo": "연세대학교"
-      }
-    ],
+    "awards": [],
+    "scholarships": [],
     "reviewer": [
       "Automation in Construction",
       "Journal of Computing in Civil Engineering",
