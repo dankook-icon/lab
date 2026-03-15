@@ -63,17 +63,17 @@
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title fade-in">교수</h2>
-      <div id="professor-section"></div>
+  <div class="container">
+    <div class="member-toggle-wrap fade-in">
+      <button class="member-toggle active" data-target="professor">Professor</button>
+      <button class="member-toggle" data-target="students">Students</button>
     </div>
-  </section>
+  </div>
 
-  <section class="section section-alt">
+  <section class="section" style="padding-top:0">
     <div class="container">
-      <h2 class="section-title fade-in">학생</h2>
-      <div id="students-section"></div>
+      <div id="professor-section" class="member-panel"></div>
+      <div id="students-section" class="member-panel" style="display:none"></div>
     </div>
   </section>
 

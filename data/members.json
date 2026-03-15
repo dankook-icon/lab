@@ -64,9 +64,85 @@
         "titleKo": "우수논문상",
         "orgEn": "Korea Agency for Infrastructure Technology Advancement",
         "orgKo": "한국건설기술연구원"
+      },
+      {
+        "titleEn": "Excellent Academic Paper Award",
+        "titleKo": "우수학술논문상",
+        "orgEn": "Yonsei University",
+        "orgKo": "연세대학교"
+      },
+      {
+        "titleEn": "CEE Best Paper of the Year",
+        "titleKo": "CEE 올해의 논문상",
+        "orgEn": "Yonsei University",
+        "orgKo": "연세대학교"
+      },
+      {
+        "titleEn": "Yonsei Young Researcher Fellowship",
+        "titleKo": "연세 젊은 연구자 펠로우십",
+        "orgEn": "Korea Ministry of Education",
+        "orgKo": "교육부"
+      },
+      {
+        "titleEn": "Best Paper Award",
+        "titleKo": "우수논문상",
+        "orgEn": "School of Civil and Environmental Engineering, Yonsei University",
+        "orgKo": "연세대학교 토목환경공학부"
+      },
+      {
+        "titleEn": "Certificate of Commendation for Excellent Students",
+        "titleKo": "우수학생 표창장",
+        "orgEn": "Korean Society of Civil Engineers",
+        "orgKo": "대한토목학회"
+      },
+      {
+        "titleEn": "Yonsei Outstanding Student Scholarship (Graduate Level)",
+        "titleKo": "연세 우수학생 장학금 (대학원)",
+        "orgEn": "Yonsei University",
+        "orgKo": "연세대학교"
+      },
+      {
+        "titleEn": "Yonsei Outstanding Student Scholarship (Undergraduate Level)",
+        "titleKo": "연세 우수학생 장학금 (학부)",
+        "orgEn": "Yonsei University",
+        "orgKo": "연세대학교"
       }
     ],
-    "reviewer": ["Automation in Construction", "Journal of Computing in Civil Engineering"]
+    "reviewer": [
+      "Automation in Construction",
+      "Journal of Computing in Civil Engineering",
+      "Journal of Construction Engineering and Management",
+      "Engineering Applications of Artificial Intelligence",
+      "International Symposium on Automation and Robotics in Construction",
+      "ASCE International Conference on Computing in Civil Engineering"
+    ],
+    "committees": [
+      {
+        "roleEn": "Committee Member (Academic Exchange, Academic Paper Editorial, Infrastructure)",
+        "roleKo": "위원 (학술교류, 학술논문편집, 인프라)",
+        "orgEn": "Korean Construction Management Association",
+        "orgKo": "한국건설관리학회"
+      },
+      {
+        "roleEn": "Committee Member (AI Committee)",
+        "roleKo": "위원 (AI 위원회)",
+        "orgEn": "Korean Construction Automation and Robotics Society",
+        "orgKo": "한국건설자동화로봇학회"
+      },
+      {
+        "roleEn": "Committee Member (Academic Paper Editorial)",
+        "roleKo": "위원 (학술논문편집)",
+        "orgEn": "Korea Purchasing and Procurement Association",
+        "orgKo": "한국조달학회"
+      },
+      {
+        "roleEn": "Committee Member (Technical Education)",
+        "roleKo": "위원 (기술교육)",
+        "orgEn": "Korea Civil Engineers Association",
+        "orgKo": "한국토목기술인회"
+      }
+    ],
+    "scholarships": []
   },
   "postdocs": [],
   "phdStudents": [],

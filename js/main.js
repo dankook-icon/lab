@@ -252,6 +252,24 @@ async function renderMembers() {
             ${prof.experience.map(e => `<li><span class="period">${e.period}</span><span>${lang === 'ko' ? e.roleKo : e.roleEn}, ${lang === 'ko' ? e.orgKo : e.orgEn}</span></li>`).join('')}
           </ul>
         </div>
+        ${prof.awards && prof.awards.length ? `<div class="detail-section">
+          <h4>${lang === 'ko' ? '수상' : 'Awards & Honors'}</h4>
+          <ul class="detail-list">
+            ${prof.awards.map(a => `<li><span>${lang === 'ko' ? a.titleKo : a.titleEn}<br><small style="color:var(--color-text-subtle)">${lang === 'ko' ? a.orgKo : a.orgEn}</small></span></li>`).join('')}
+          </ul>
+        </div>` : ''}
+        ${prof.committees && prof.committees.length ? `<div class="detail-section">
+          <h4>${lang === 'ko' ? '학회 활동' : 'Professional Service'}</h4>
+          <ul class="detail-list">
+            ${prof.committees.map(c => `<li><span>${lang === 'ko' ? c.roleKo : c.roleEn}, ${lang === 'ko' ? c.orgKo : c.orgEn}</span></li>`).join('')}
+          </ul>
+        </div>` : ''}
+        ${prof.reviewer && prof.reviewer.length ? `<div class="detail-section">
+          <h4>${lang === 'ko' ? '논문 심사' : 'Reviewer'}</h4>
+          <ul class="detail-list">
+            ${prof.reviewer.map(r => `<li><span>${r}</span></li>`).join('')}
+          </ul>
+        </div>` : ''}
       </div>
     </div>`;
   profContainer.innerHTML = profHtml;
@@ -330,6 +348,17 @@ async function renderMembers() {
   }
 
   initFadeIn();
+
+  // Member toggle
+  document.querySelectorAll('.member-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.member-toggle').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.target;
+      document.getElementById('professor-section').style.display = target === 'professor' ? '' : 'none';
+      document.getElementById('students-section').style.display = target === 'students' ? '' : 'none';
+    });
+  });
 }
 
 // Render teaching
