@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — ICON Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f0f2f5;
+  --surface: #ffffff;
+  --surface2: #f8f9fb;
+  --border: #e2e5ea;
+  --border-strong: #c8cdd6;
+  --text: #1a1d23;
+  --text-2: #4b5264;
+  --text-3: #8892a4;
+  --blue: #2563eb;
+  --blue-hover: #1d4ed8;
+  --blue-light: #eff4ff;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --amber: #d97706;
+  --amber-light: #fffbeb;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* LOGIN */
+#login-screen {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  z-index: 1000;
+}
+.login-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 48px 40px;
+  width: 100%; max-width: 400px;
+  text-align: center;
+}
+.login-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.login-card p { color: var(--text-3); font-size: 14px; margin-bottom: 28px; }
+.login-card input[type="password"] {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-family: inherit; font-size: 15px;
+  outline: none; transition: border-color .2s;
+}
+.login-card input[type="password"]:focus { border-color: var(--blue); }
+.login-card .login-error {
+  color: var(--red); font-size: 13px; margin-top: 10px; display: none;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius);
+  font-family: inherit; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-hover); }
+.btn-danger { background: var(--red); color: #fff; }
+.btn-danger:hover { background: #b91c1c; }
+.btn-outline { background: transparent; color: var(--blue); border: 1px solid var(--blue); }
+.btn-outline:hover { background: var(--blue); color: #fff; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-success:hover { background: #15803d; }
+.btn-sm { padding: 7px 14px; font-size: 13px; }
+.btn-block { width: 100%; justify-content: center; margin-top: 16px; }
+
+/* ADMIN LAYOUT */
+#admin-panel { display: none; }
+.admin-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  position: sticky; top: 0; z-index: 100;
+}
+.admin-header h1 { font-size: 18px; font-weight: 700; }
+.admin-header .header-actions { display: flex; gap: 10px; align-items: center; }
+
+/* TABS */
+.tabs {
+  display: flex; gap: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+}
+.tab-btn {
+  padding: 14px 28px; border: none; background: none;
+  font-family: inherit; font-size: 14px; font-weight: 500;
+  color: var(--text-3); cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .15s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* TAB CONTENT */
+.tab-content { display: none; padding: 28px 32px; max-width: 1100px; }
+.tab-content.active { display: block; }
+
+/* CARD */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+.card-title {
+  font-size: 17px; font-weight: 600;
+  margin-bottom: 18px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.card-subtitle {
+  font-size: 14px; font-weight: 600;
+  color: var(--text-2); margin: 20px 0 12px 0;
+}
+
+/* FORM */
+.form-row { display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+.form-group { flex: 1; min-width: 200px; }
+.form-group label {
+  display: block; font-size: 12px; font-weight: 500;
+  color: var(--text-3); margin-bottom: 4px; text-transform: none;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-family: inherit; font-size: 14px; outline: none;
+  transition: border-color .15s; background: #fff;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--blue); }
+.form-group textarea { resize: vertical; min-height: 56px; }
+
+/* LIST ITEMS */
+.list-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  position: relative;
+  background: var(--surface2);
+  transition: border-color .15s;
+}
+.list-item:hover { border-color: var(--border-strong); }
+.remove-btn {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: none; color: var(--text-3);
+  cursor: pointer; font-size: 20px; line-height: 1;
+  width: 28px; height: 28px; display: flex;
+  align-items: center; justify-content: center;
+  border-radius: 4px; transition: all .15s;
+}
+.remove-btn:hover { color: var(--red); background: var(--red-light); }
+.add-row { margin: 6px 0 22px 0; }
+
+/* STATUS TOAST */
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  padding: 14px 24px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 500;
+  color: #fff; background: var(--green);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transform: translateY(120px); opacity: 0;
+  transition: all .3s ease; z-index: 999;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* DROPZONE */
+.dropzone {
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: all .2s;
+  margin-bottom: 12px;
+}
+.dropzone:hover, .dropzone.dragover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  color: var(--blue);
+}
+.dropzone svg { margin-bottom: 8px; }
+.photo-preview {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px;
+}
+.photo-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  width: 180px;
+  position: relative;
+}
+.photo-card img {
+  width: 100%; height: 120px; object-fit: cover;
+  border-radius: 4px; margin-bottom: 6px;
+}
+.photo-card .photo-name {
+  font-size: 12px; color: var(--text-2);
+  word-break: break-all;
+}
+.photo-card .photo-actions {
+  display: flex; gap: 4px; margin-top: 6px;
+}
+.photo-card .photo-actions button { font-size: 11px; padding: 4px 8px; }
+.folder-setting {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px; padding: 12px 16px;
+  background: var(--surface2); border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.folder-setting label { font-weight: 600; white-space: nowrap; font-size: 13px; }
+.folder-setting input { flex: 1; }
+
+/* SAVE BAR */
+.save-bar {
+  padding: 16px 0; margin-top: 8px;
+  display: flex; gap: 12px; align-items: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .admin-header { padding: 12px 16px; }
+  .tabs { padding: 0 12px; overflow-x: auto; }
+  .tab-btn { padding: 12px 18px; font-size: 13px; }
+  .tab-content { padding: 16px; }
+  .form-row { flex-direction: column; gap: 8px; }
+  .form-group { min-width: 100%; }
+  .card { padding: 18px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<div id="login-screen">
+  <div class="login-card">
+    <h1>ICON Lab Admin</h1>
+    <p>관리자 패널에 접근하려면 비밀번호를 입력하세요.</p>
+    <input type="password" id="pwInput" placeholder="비밀번호" autofocus>
+    <div class="login-error" id="loginError">비밀번호가 올바르지 않습니다.</div>
+    <button class="btn btn-primary btn-block" onclick="tryLogin()">로그인</button>
+  </div>
+</div>
+
+<!-- Admin Panel -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <h1>Admin Panel &#8212; ICON Lab</h1>
+    <div class="header-actions">
+      <button class="btn btn-outline btn-sm" id="connectFolderBtn" onclick="connectFolder()">폴더 연결</button>
+      <button class="btn btn-success btn-sm" onclick="saveAll()">전체 저장</button>
+      <button class="btn btn-outline btn-sm" onclick="location.reload()">새로고침</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="members" onclick="switchTab('members')">구성원</button>
+    <button class="tab-btn" data-tab="publications" onclick="switchTab('publications')">연구업적</button>
+    <button class="tab-btn" data-tab="teaching" onclick="switchTab('teaching')">강의</button>
+    <button class="tab-btn" data-tab="album" onclick="switchTab('album')">앨범</button>
+  </div>
+
+  <!-- ===== Members Tab ===== -->
+  <div class="tab-content active" id="tab-members">
+    <div class="card">
+      <div class="card-title">교수 정보</div>
+      <div class="form-row">
+        <div class="form-group"><label>이름 (한국어)</label><input id="prof-nameKo"></div>
+        <div class="form-group"><label>이름 (영어)</label><input id="prof-nameEn"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>직위 (한국어)</label><input id="prof-titleKo"></div>
+        <div class="form-group"><label>직위 (영어)</label><input id="prof-titleEn"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>소속 (한국어)</label><input id="prof-departmentKo"></div>
+        <div class="form-group"><label>소속 (영어)</label><input id="prof-departmentEn"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>이메일</label><input id="prof-email"></div>
+        <div class="form-group"><label>전화번호</label><input id="prof-phone"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">학력</div>
+      <div id="education-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addEducation()">+ 학력 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">경력</div>
+      <div id="experience-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addExperience()">+ 경력 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">위원회 활동</div>
+      <div id="committees-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addCommittee()">+ 위원회 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">심사위원 (Reviewer)</div>
+      <div id="reviewer-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addReviewer()">+ 저널 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">학생 관리</div>
+
+      <div class="card-subtitle">박사후연구원 (Postdocs)</div>
+      <div id="postdocs-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addStudent('postdocs')">+ 박사후연구원 추가</button></div>
+
+      <div class="card-subtitle">박사과정 (Ph.D. Students)</div>
+      <div id="phdStudents-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addStudent('phdStudents')">+ 박사과정 추가</button></div>
+
+      <div class="card-subtitle">석사과정 (M.S. Students)</div>
+      <div id="msStudents-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addStudent('msStudents')">+ 석사과정 추가</button></div>
+
+      <div class="card-subtitle">학부 인턴 (Undergraduate Interns)</div>
+      <div id="undergraduateInterns-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addStudent('undergraduateInterns')">+ 학부 인턴 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">모집 안내</div>
+      <div class="form-row">
+        <div class="form-group"><label>모집 메시지 (한국어)</label><textarea id="recruiting-messageKo" rows="3"></textarea></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>모집 메시지 (영어)</label><textarea id="recruiting-messageEn" rows="3"></textarea></div>
+      </div>
+    </div>
+
+    <div class="save-bar">
+      <button class="btn btn-primary" onclick="saveMembers()">구성원 저장 (다운로드)</button>
+    </div>
+  </div>
+
+  <!-- ===== Publications Tab ===== -->
+  <div class="tab-content" id="tab-publications">
+    <div class="card">
+      <div class="card-title">국제 저널 (Journals)</div>
+      <div id="journals-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPub('journals')">+ 저널 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">국제 학회 (Conferences)</div>
+      <div id="conferences-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPub('conferences')">+ 학회 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">국내 학회 (Domestic Conferences)</div>
+      <div id="domesticConferences-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPub('domesticConferences')">+ 국내 학회 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">특허 (Patents)</div>
+      <div id="patents-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPub('patents')">+ 특허 추가</button></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">소프트웨어 (Software)</div>
+      <div id="software-list"></div>
+      <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPub('software')">+ 소프트웨어 추가</button></div>
+    </div>
+
+    <div class="save-bar">
+      <button class="btn btn-primary" onclick="savePublications()">연구업적 저장 (다운로드)</button>
+    </div>
+  </div>
+
+  <!-- ===== Teaching Tab ===== -->
+  <div class="tab-content" id="tab-teaching">
+    <div id="teaching-list"></div>
+    <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addSemester()">+ 학기 추가</button></div>
+    <div class="save-bar">
+      <button class="btn btn-primary" onclick="saveTeaching()">강의 저장 (다운로드)</button>
+    </div>
+  </div>
+</div>
+
+  <!-- ===== Album Tab ===== -->
+  <div class="tab-content" id="tab-album">
+    <div class="card">
+      <div class="card-title">사진 업로드</div>
+      <div class="dropzone" id="dropzone"
+        ondragover="event.preventDefault();this.classList.add('dragover')"
+        ondragleave="this.classList.remove('dragover')"
+        ondrop="handleDrop(event)"
+        onclick="document.getElementById('fileInput').click()">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <div>사진을 드래그하거나 클릭하여 업로드</div>
+        <div style="font-size:12px;margin-top:4px">WebP로 자동 변환 후 다운로드됩니다</div>
+      </div>
+      <input type="file" id="fileInput" accept="image/*" multiple style="display:none" onchange="handleFiles(this.files)">
+      <div class="photo-preview" id="photo-preview"></div>
+    </div>
+
+    <div id="album-categories"></div>
+    <div class="add-row"><button class="btn btn-outline btn-sm" onclick="addAlbumCategory()">+ 카테고리 추가</button></div>
+    <div class="save-bar">
+      <button class="btn btn-primary" onclick="saveAlbum()">앨범 저장 (다운로드)</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========== State ========== */
+var membersData = null;
+var pubsData = null;
+var teachingData = null;
+var albumData = null;
+
+/* ========== File System Access API ========== */
+var rootDirHandle = null;
+var dataDirHandle = null;
+var imagesDirHandle = null;
+
+async function connectFolder() {
+  try {
+    rootDirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    try {
+      dataDirHandle = await rootDirHandle.getDirectoryHandle('data');
+    } catch (e) {
+      showToast('선택한 폴더에 data/ 폴더가 없습니다. 프로젝트 루트를 선택하세요.');
+      rootDirHandle = null;
+      return;
+    }
+    try {
+      imagesDirHandle = await rootDirHandle.getDirectoryHandle('images', { create: true });
+    } catch (e) { imagesDirHandle = null; }
+    var btn = document.getElementById('connectFolderBtn');
+    btn.textContent = '연결됨: ' + rootDirHandle.name;
+    btn.style.borderColor = 'var(--green)';
+    btn.style.color = 'var(--green)';
+    showToast('폴더 연결 완료 — 저장 시 파일이 직접 저장됩니다');
+  } catch (err) {
+    if (err.name !== 'AbortError') showToast('폴더 연결 실패: ' + err.message);
+  }
+}
+
+async function writeFileToDisk(dirHandle, filename, content) {
+  var fileHandle = await dirHandle.getFileHandle(filename, { create: true });
+  var writable = await fileHandle.createWritable();
+  await writable.write(content);
+  await writable.close();
+}
+
+async function saveImageToDisk(subfolder, blob, filename) {
+  if (!imagesDirHandle) return false;
+  try {
+    var subDir = await imagesDirHandle.getDirectoryHandle(subfolder, { create: true });
+    var fileHandle = await subDir.getFileHandle(filename, { create: true });
+    var writable = await fileHandle.createWritable();
+    await writable.write(blob);
+    await writable.close();
+    return true;
+  } catch (e) { return false; }
+}
+
+/* ========== Login ========== */
+document.getElementById('pwInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') tryLogin();
+});
+
+function tryLogin() {
+  var val = document.getElementById('pwInput').value;
+  if (val === 'juhyeon') {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    loadAllData();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+}
+
+/* ========== Tabs ========== */
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelector('.tab-btn[data-tab="' + name + '"]').classList.add('active');
+}
+
+/* ========== Load Data ========== */
+function loadAllData() {
+  Promise.all([
+    fetch('data/members.json').then(function(r) { return r.json(); }),
+    fetch('data/publications.json').then(function(r) { return r.json(); }),
+    fetch('data/teaching.json').then(function(r) { return r.json(); }),
+    fetch('data/album.json').then(function(r) { return r.json(); })
+  ]).then(function(results) {
+    membersData = results[0];
+    pubsData = results[1];
+    teachingData = results[2];
+    albumData = results[3];
+    renderMembers();
+    renderPublications();
+    renderTeaching();
+    renderAlbum();
+    showToast('데이터를 성공적으로 불러왔습니다.');
+  }).catch(function(e) {
+    showToast('데이터 로드 실패: ' + e.message);
+  });
+}
+
+/* ========== Toast ========== */
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 3000);
+}
+
+/* ========== Escape HTML ========== */
+function esc(val) {
+  if (val === undefined || val === null) return '';
+  return String(val).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* ========== MEMBERS RENDERING ========== */
+function renderMembers() {
+  var p = membersData.professor;
+  document.getElementById('prof-nameKo').value = p.nameKo || '';
+  document.getElementById('prof-nameEn').value = p.nameEn || '';
+  document.getElementById('prof-titleKo').value = p.titleKo || '';
+  document.getElementById('prof-titleEn').value = p.titleEn || '';
+  document.getElementById('prof-departmentKo').value = p.departmentKo || '';
+  document.getElementById('prof-departmentEn').value = p.departmentEn || '';
+  document.getElementById('prof-email').value = p.email || '';
+  document.getElementById('prof-phone').value = p.phone || '';
+  renderEducation();
+  renderExperience();
+  renderCommittees();
+  renderReviewers();
+  renderStudents('postdocs');
+  renderStudents('phdStudents');
+  renderStudents('msStudents');
+  renderStudents('undergraduateInterns');
+  document.getElementById('recruiting-messageKo').value = (membersData.recruiting && membersData.recruiting.messageKo) || '';
+  document.getElementById('recruiting-messageEn').value = (membersData.recruiting && membersData.recruiting.messageEn) || '';
+}
+
+/* --- Education --- */
+function renderEducation() {
+  var c = document.getElementById('education-list');
+  var html = '';
+  (membersData.professor.education || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removeEducation(' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>학위 (한국어)</label><input value="' + esc(item.degreeKo) + '" onchange="membersData.professor.education[' + i + '].degreeKo=this.value"></div>'
+      + '<div class="form-group"><label>학위 (영어)</label><input value="' + esc(item.degreeEn) + '" onchange="membersData.professor.education[' + i + '].degreeEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>기관 (한국어)</label><input value="' + esc(item.institutionKo) + '" onchange="membersData.professor.education[' + i + '].institutionKo=this.value"></div>'
+      + '<div class="form-group"><label>기관 (영어)</label><input value="' + esc(item.institutionEn) + '" onchange="membersData.professor.education[' + i + '].institutionEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>기간</label><input value="' + esc(item.year) + '" onchange="membersData.professor.education[' + i + '].year=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>상세 (한국어)</label><textarea onchange="membersData.professor.education[' + i + '].detailKo=this.value">' + esc(item.detailKo) + '</textarea></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>상세 (영어)</label><textarea onchange="membersData.professor.education[' + i + '].detailEn=this.value">' + esc(item.detailEn) + '</textarea></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+function addEducation() {
+  membersData.professor.education.push({degreeKo:'',degreeEn:'',institutionKo:'',institutionEn:'',year:'',detailKo:'',detailEn:''});
+  renderEducation();
+}
+function removeEducation(i) {
+  membersData.professor.education.splice(i, 1);
+  renderEducation();
+}
+
+/* --- Experience --- */
+function renderExperience() {
+  var c = document.getElementById('experience-list');
+  var html = '';
+  (membersData.professor.experience || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removeExperience(' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>역할 (한국어)</label><input value="' + esc(item.roleKo) + '" onchange="membersData.professor.experience[' + i + '].roleKo=this.value"></div>'
+      + '<div class="form-group"><label>역할 (영어)</label><input value="' + esc(item.roleEn) + '" onchange="membersData.professor.experience[' + i + '].roleEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>기관 (한국어)</label><input value="' + esc(item.orgKo) + '" onchange="membersData.professor.experience[' + i + '].orgKo=this.value"></div>'
+      + '<div class="form-group"><label>기관 (영어)</label><input value="' + esc(item.orgEn) + '" onchange="membersData.professor.experience[' + i + '].orgEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>기간</label><input value="' + esc(item.period) + '" onchange="membersData.professor.experience[' + i + '].period=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+function addExperience() {
+  membersData.professor.experience.push({roleKo:'',roleEn:'',orgKo:'',orgEn:'',period:''});
+  renderExperience();
+}
+function removeExperience(i) {
+  membersData.professor.experience.splice(i, 1);
+  renderExperience();
+}
+
+/* --- Committees --- */
+function renderCommittees() {
+  var c = document.getElementById('committees-list');
+  var html = '';
+  (membersData.professor.committees || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removeCommittee(' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>역할 (한국어)</label><input value="' + esc(item.roleKo) + '" onchange="membersData.professor.committees[' + i + '].roleKo=this.value"></div>'
+      + '<div class="form-group"><label>역할 (영어)</label><input value="' + esc(item.roleEn) + '" onchange="membersData.professor.committees[' + i + '].roleEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>기관 (한국어)</label><input value="' + esc(item.orgKo) + '" onchange="membersData.professor.committees[' + i + '].orgKo=this.value"></div>'
+      + '<div class="form-group"><label>기관 (영어)</label><input value="' + esc(item.orgEn) + '" onchange="membersData.professor.committees[' + i + '].orgEn=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+function addCommittee() {
+  membersData.professor.committees.push({roleKo:'',roleEn:'',orgKo:'',orgEn:''});
+  renderCommittees();
+}
+function removeCommittee(i) {
+  membersData.professor.committees.splice(i, 1);
+  renderCommittees();
+}
+
+/* --- Reviewers --- */
+function renderReviewers() {
+  var c = document.getElementById('reviewer-list');
+  var html = '';
+  (membersData.professor.reviewer || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removeReviewer(' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>저널명</label><input value="' + esc(item) + '" onchange="membersData.professor.reviewer[' + i + ']=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+function addReviewer() {
+  membersData.professor.reviewer.push('');
+  renderReviewers();
+}
+function removeReviewer(i) {
+  membersData.professor.reviewer.splice(i, 1);
+  renderReviewers();
+}
+
+/* --- Students --- */
+function renderStudents(cat) {
+  var c = document.getElementById(cat + '-list');
+  var html = '';
+  (membersData[cat] || []).forEach(function(s, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removeStudent(\'' + cat + '\',' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>이름 (한국어)</label><input value="' + esc(s.nameKo) + '" onchange="membersData[\'' + cat + '\'][' + i + '].nameKo=this.value"></div>'
+      + '<div class="form-group"><label>이름 (영어)</label><input value="' + esc(s.nameEn) + '" onchange="membersData[\'' + cat + '\'][' + i + '].nameEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>역할 (한국어)</label><input value="' + esc(s.roleKo) + '" onchange="membersData[\'' + cat + '\'][' + i + '].roleKo=this.value"></div>'
+      + '<div class="form-group"><label>역할 (영어)</label><input value="' + esc(s.roleEn) + '" onchange="membersData[\'' + cat + '\'][' + i + '].roleEn=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>소속 (한국어)</label><input value="' + esc(s.departmentKo) + '" onchange="membersData[\'' + cat + '\'][' + i + '].departmentKo=this.value"></div>'
+      + '<div class="form-group"><label>소속 (영어)</label><input value="' + esc(s.departmentEn) + '" onchange="membersData[\'' + cat + '\'][' + i + '].departmentEn=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+function addStudent(cat) {
+  membersData[cat].push({nameKo:'',nameEn:'',roleKo:'',roleEn:'',departmentKo:'',departmentEn:''});
+  renderStudents(cat);
+}
+function removeStudent(cat, i) {
+  membersData[cat].splice(i, 1);
+  renderStudents(cat);
+}
+
+/* ========== PUBLICATIONS RENDERING ========== */
+function renderPublications() {
+  renderPubCategory('journals');
+  renderPubCategory('conferences');
+  renderPubCategory('domesticConferences');
+  renderPatents();
+  renderSoftware();
+}
+
+function renderPubCategory(cat) {
+  var c = document.getElementById(cat + '-list');
+  var html = '';
+  var hasLocation = (cat === 'conferences');
+  (pubsData[cat] || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removePub(\'' + cat + '\',' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group" style="max-width:100px"><label>연도</label><input type="number" value="' + (item.year || '') + '" onchange="pubsData[\'' + cat + '\'][' + i + '].year=parseInt(this.value)||0"></div>'
+      + '<div class="form-group"><label>저자</label><input value="' + esc(item.authors) + '" onchange="pubsData[\'' + cat + '\'][' + i + '].authors=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목</label><input value="' + esc(item.title) + '" onchange="pubsData[\'' + cat + '\'][' + i + '].title=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>학술지/학회</label><input value="' + esc(item.venue) + '" onchange="pubsData[\'' + cat + '\'][' + i + '].venue=this.value"></div>'
+      + '<div class="form-group"><label>상세</label><input value="' + esc(item.detail) + '" onchange="pubsData[\'' + cat + '\'][' + i + '].detail=this.value"></div>';
+    if (hasLocation) {
+      html += '<div class="form-group"><label>장소</label><input value="' + esc(item.location) + '" onchange="pubsData[\'' + cat + '\'][' + i + '].location=this.value"></div>';
+    }
+    html += '</div></div>';
+  });
+  c.innerHTML = html;
+}
+
+function renderPatents() {
+  var c = document.getElementById('patents-list');
+  var html = '';
+  (pubsData.patents || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removePub(\'patents\',' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group" style="max-width:100px"><label>연도</label><input type="number" value="' + (item.year || '') + '" onchange="pubsData.patents[' + i + '].year=parseInt(this.value)||0"></div>'
+      + '<div class="form-group"><label>번호</label><input value="' + esc(item.number) + '" onchange="pubsData.patents[' + i + '].number=this.value"></div>'
+      + '<div class="form-group" style="max-width:170px"><label>유형</label>'
+      + '<select onchange="pubsData.patents[' + i + '].type=this.value">'
+      + '<option value="application"' + (item.type === 'application' ? ' selected' : '') + '>출원 (Application)</option>'
+      + '<option value="registered"' + (item.type === 'registered' ? ' selected' : '') + '>등록 (Registered)</option>'
+      + '</select></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목 (한국어)</label><input value="' + esc(item.titleKo) + '" onchange="pubsData.patents[' + i + '].titleKo=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목 (영어)</label><input value="' + esc(item.titleEn) + '" onchange="pubsData.patents[' + i + '].titleEn=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+
+function renderSoftware() {
+  var c = document.getElementById('software-list');
+  var html = '';
+  (pubsData.software || []).forEach(function(item, i) {
+    html += '<div class="list-item">'
+      + '<button class="remove-btn" onclick="removePub(\'software\',' + i + ')">&times;</button>'
+      + '<div class="form-row">'
+      + '<div class="form-group" style="max-width:100px"><label>연도</label><input type="number" value="' + (item.year || '') + '" onchange="pubsData.software[' + i + '].year=parseInt(this.value)||0"></div>'
+      + '<div class="form-group"><label>번호</label><input value="' + esc(item.number) + '" onchange="pubsData.software[' + i + '].number=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목 (한국어)</label><input value="' + esc(item.titleKo) + '" onchange="pubsData.software[' + i + '].titleKo=this.value"></div>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목 (영어)</label><input value="' + esc(item.titleEn) + '" onchange="pubsData.software[' + i + '].titleEn=this.value"></div>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+
+function addPub(cat) {
+  var yr = new Date().getFullYear();
+  if (cat === 'patents') {
+    pubsData.patents.push({year: yr, number: '', titleKo: '', titleEn: '', type: 'application'});
+    renderPatents();
+  } else if (cat === 'software') {
+    pubsData.software.push({year: yr, number: '', titleKo: '', titleEn: ''});
+    renderSoftware();
+  } else if (cat === 'conferences') {
+    pubsData[cat].push({year: yr, title: '', authors: '', venue: '', detail: '', location: ''});
+    renderPubCategory(cat);
+  } else {
+    pubsData[cat].push({year: yr, title: '', authors: '', venue: '', detail: ''});
+    renderPubCategory(cat);
+  }
+}
+
+function removePub(cat, i) {
+  pubsData[cat].splice(i, 1);
+  if (cat === 'patents') renderPatents();
+  else if (cat === 'software') renderSoftware();
+  else renderPubCategory(cat);
+}
+
+/* ========== TEACHING RENDERING ========== */
+function renderTeaching() {
+  var c = document.getElementById('teaching-list');
+  var html = '';
+  teachingData.forEach(function(sem, si) {
+    var coursesHtml = '';
+    (sem.courses || []).forEach(function(course, ci) {
+      coursesHtml += '<div class="list-item">'
+        + '<button class="remove-btn" onclick="removeCourse(' + si + ',' + ci + ')">&times;</button>'
+        + '<div class="form-row">'
+        + '<div class="form-group"><label>과목명 (한국어)</label><input value="' + esc(course.nameKo) + '" onchange="teachingData[' + si + '].courses[' + ci + '].nameKo=this.value"></div>'
+        + '<div class="form-group"><label>과목명 (영어)</label><input value="' + esc(course.nameEn) + '" onchange="teachingData[' + si + '].courses[' + ci + '].nameEn=this.value"></div>'
+        + '</div>'
+        + '<div class="form-row">'
+        + '<div class="form-group"><label>학년 (한국어)</label><input value="' + esc(course.gradeKo) + '" onchange="teachingData[' + si + '].courses[' + ci + '].gradeKo=this.value"></div>'
+        + '<div class="form-group"><label>학년 (영어)</label><input value="' + esc(course.gradeEn) + '" onchange="teachingData[' + si + '].courses[' + ci + '].gradeEn=this.value"></div>'
+        + '</div>'
+        + '</div>';
+    });
+
+    html += '<div class="card">'
+      + '<div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">'
+      + '<span>' + esc(sem.semesterKo || '') + ' (' + esc(sem.semester || '') + ')</span>'
+      + '<button class="btn btn-danger btn-sm" onclick="removeSemester(' + si + ')">학기 삭제</button>'
+      + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>학기명 (한국어)</label><input value="' + esc(sem.semesterKo) + '" onchange="teachingData[' + si + '].semesterKo=this.value;renderTeaching()"></div>'
+      + '<div class="form-group"><label>학기명 (영어)</label><input value="' + esc(sem.semester) + '" onchange="teachingData[' + si + '].semester=this.value;renderTeaching()"></div>'
+      + '</div>'
+      + '<div class="card-subtitle">강의 목록</div>'
+      + coursesHtml
+      + '<div class="add-row"><button class="btn btn-outline btn-sm" onclick="addCourse(' + si + ')">+ 강의 추가</button></div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+
+function addSemester() {
+  teachingData.unshift({semester: '', semesterKo: '', courses: []});
+  renderTeaching();
+}
+function removeSemester(i) {
+  teachingData.splice(i, 1);
+  renderTeaching();
+}
+function addCourse(si) {
+  teachingData[si].courses.push({nameEn: '', nameKo: '', gradeEn: '', gradeKo: ''});
+  renderTeaching();
+}
+function removeCourse(si, ci) {
+  teachingData[si].courses.splice(ci, 1);
+  renderTeaching();
+}
+
+/* ========== SAVE / DOWNLOAD ========== */
+function downloadJSON(data, filename) {
+  var json = JSON.stringify(data, null, 2);
+  var blob = new Blob([json], {type: 'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+function collectProfessorFields() {
+  var p = membersData.professor;
+  p.nameKo = document.getElementById('prof-nameKo').value;
+  p.nameEn = document.getElementById('prof-nameEn').value;
+  p.titleKo = document.getElementById('prof-titleKo').value;
+  p.titleEn = document.getElementById('prof-titleEn').value;
+  p.departmentKo = document.getElementById('prof-departmentKo').value;
+  p.departmentEn = document.getElementById('prof-departmentEn').value;
+  p.email = document.getElementById('prof-email').value;
+  p.phone = document.getElementById('prof-phone').value;
+  membersData.recruiting = {
+    messageKo: document.getElementById('recruiting-messageKo').value,
+    messageEn: document.getElementById('recruiting-messageEn').value
+  };
+}
+
+async function saveJSON(data, filename) {
+  if (dataDirHandle) {
+    await writeFileToDisk(dataDirHandle, filename, JSON.stringify(data, null, 2));
+    showToast(filename + ' 저장 완료');
+  } else {
+    downloadJSON(data, filename);
+    showToast(filename + ' 다운로드 완료 (폴더 연결 시 자동 저장)');
+  }
+}
+
+function saveMembers() {
+  collectProfessorFields();
+  saveJSON(membersData, 'members.json');
+}
+
+function savePublications() {
+  saveJSON(pubsData, 'publications.json');
+}
+
+function saveTeaching() {
+  saveJSON(teachingData, 'teaching.json');
+}
+
+async function saveAll() {
+  collectProfessorFields();
+  await saveJSON(membersData, 'members.json');
+  await saveJSON(pubsData, 'publications.json');
+  await saveJSON(teachingData, 'teaching.json');
+  await saveJSON(albumData, 'album.json');
+  showToast('전체 파일 저장 완료');
+}
+
+/* ========== ALBUM RENDERING ========== */
+function renderAlbum() {
+  var c = document.getElementById('album-categories');
+  var html = '';
+  (albumData || []).forEach(function(cat, ci) {
+    html += '<div class="card">'
+      + '<button class="remove-btn" onclick="removeAlbumCategory(' + ci + ')" style="float:right">&times;</button>'
+      + '<div class="card-title">카테고리 #' + (ci + 1) + '</div>'
+      + '<div class="form-row">'
+      + '<div class="form-group"><label>제목 (한국어)</label><input value="' + esc(cat.title) + '" onchange="albumData[' + ci + '].title=this.value"></div>'
+      + '<div class="form-group"><label>제목 (영어)</label><input value="' + esc(cat.titleEn) + '" onchange="albumData[' + ci + '].titleEn=this.value"></div>'
+      + '</div>'
+      + '<div class="card-subtitle">사진 목록</div>';
+    (cat.photos || []).forEach(function(photo, pi) {
+      html += '<div class="list-item">'
+        + '<button class="remove-btn" onclick="removePhoto(' + ci + ',' + pi + ')">&times;</button>'
+        + '<div class="form-row">'
+        + '<div class="form-group"><label>파일경로 (예: images/album/photo1.webp)</label><input value="' + esc(photo.src) + '" onchange="albumData[' + ci + '].photos[' + pi + '].src=this.value"></div>'
+        + '</div>'
+        + '<div class="form-row">'
+        + '<div class="form-group"><label>설명 (한국어)</label><input value="' + esc(photo.caption) + '" onchange="albumData[' + ci + '].photos[' + pi + '].caption=this.value"></div>'
+        + '<div class="form-group"><label>설명 (영어)</label><input value="' + esc(photo.captionEn) + '" onchange="albumData[' + ci + '].photos[' + pi + '].captionEn=this.value"></div>'
+        + '</div>'
+        + '<div class="form-row">'
+        + '<div class="form-group"><label>날짜</label><input value="' + esc(photo.date) + '" onchange="albumData[' + ci + '].photos[' + pi + '].date=this.value" placeholder="2025-03-15"></div>'
+        + '</div>'
+        + '</div>';
+    });
+    html += '<div class="add-row"><button class="btn btn-outline btn-sm" onclick="addPhoto(' + ci + ')">+ 사진 추가</button></div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+
+function addAlbumCategory() {
+  albumData.push({title: '', titleEn: '', photos: []});
+  renderAlbum();
+}
+function removeAlbumCategory(ci) {
+  albumData.splice(ci, 1);
+  renderAlbum();
+}
+function addPhoto(ci) {
+  albumData[ci].photos.push({src: '', caption: '', captionEn: '', date: ''});
+  renderAlbum();
+}
+function removePhoto(ci, pi) {
+  albumData[ci].photos.splice(pi, 1);
+  renderAlbum();
+}
+
+function saveAlbum() {
+  saveJSON(albumData, 'album.json');
+}
+
+/* ========== DRAG & DROP / IMAGE UPLOAD ========== */
+var uploadedFiles = [];
+
+function handleDrop(e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+}
+
+function handleFiles(files) {
+  Array.from(files).forEach(function(file) {
+    if (!file.type.startsWith('image/')) return;
+    convertToWebP(file, function(webpBlob, preview, filename) {
+      uploadedFiles.push({ blob: webpBlob, preview: preview, filename: filename });
+      renderUploadPreview();
+    });
+  });
+}
+
+function convertToWebP(file, callback) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var maxW = 1600;
+      var w = img.width, h = img.height;
+      if (w > maxW) { h = h * (maxW / w); w = maxW; }
+      canvas.width = w; canvas.height = h;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      canvas.toBlob(function(blob) {
+        var name = file.name.replace(/\.[^.]+$/, '') + '.webp';
+        callback(blob, canvas.toDataURL('image/webp', 0.85), name);
+      }, 'image/webp', 0.85);
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderUploadPreview() {
+  var c = document.getElementById('photo-preview');
+  var html = '';
+  uploadedFiles.forEach(function(f, i) {
+    var status = f.saved ? '<span style="color:var(--green);font-size:11px">저장됨</span>' : '';
+    html += '<div class="photo-card">'
+      + '<img src="' + f.preview + '">'
+      + '<div class="photo-name">' + esc(f.filename) + ' ' + status + '</div>'
+      + '<div style="font-size:11px;color:var(--text-3);margin-top:2px">images/album/' + esc(f.filename) + '</div>'
+      + '<div class="photo-actions">'
+      + '<button class="btn btn-primary btn-sm" onclick="saveAndAddToAlbum(' + i + ')">저장 + 앨범 추가</button>'
+      + '<button class="btn btn-danger btn-sm" onclick="removeUpload(' + i + ')">&times;</button>'
+      + '</div>'
+      + '</div>';
+  });
+  c.innerHTML = html;
+}
+
+async function saveAndAddToAlbum(i) {
+  var f = uploadedFiles[i];
+  if (imagesDirHandle) {
+    var ok = await saveImageToDisk('album', f.blob, f.filename);
+    if (ok) {
+      f.saved = true;
+      showToast(f.filename + ' → images/album/ 에 저장됨');
+    } else {
+      showToast('이미지 저장 실패');
+    }
+  } else {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(f.blob);
+    a.download = f.filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+    showToast(f.filename + ' 다운로드 완료 (폴더 연결 시 자동 저장)');
+  }
+  if (!albumData.length) albumData.push({title: '앨범', titleEn: 'Album', photos: []});
+  albumData[0].photos.push({src: 'images/album/' + f.filename, caption: '', captionEn: '', date: ''});
+  renderAlbum();
+  renderUploadPreview();
+}
+
+function removeUpload(i) {
+  uploadedFiles.splice(i, 1);
+  renderUploadPreview();
+}
+</script>
+</body>
+</html>
