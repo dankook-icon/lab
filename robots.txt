@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dankook-icon.github.io/lab/sitemap.xml

@@ -1066,7 +1066,7 @@ strong { font-weight: 600; color: var(--color-text); }
   .professor-photo { width: 140px; height: 140px; }
   .professor-contact-inline { justify-content: center; }
 
-  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-inner { flex-direction: column; text-align: center; align-items: stretch; }
   .footer-copy { text-align: center; }
 
   .detail-list li { flex-direction: column; gap: 2px; }
