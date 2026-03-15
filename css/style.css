@@ -351,7 +351,7 @@ strong { font-weight: 600; color: var(--color-text); }
   justify-content: center;
   text-align: center;
   padding: calc(var(--nav-height) + 48px) 24px 48px;
-  background: url('../images/background.png') center center / cover no-repeat;
+  background: url('../images/background.webp') center center / cover no-repeat;
 }
 
 .hero-banner::after {
