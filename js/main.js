@@ -400,65 +400,64 @@ function renderResearchGraph() {
   const tooltip = document.getElementById('graphTooltip');
   const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
 
-  // Nodes sized by publication count. Scaffold is the largest research area (12+ papers)
+  // 3-level hierarchy: Root > Category > Sub-topic
   const nodes = [
-    { id: 'center', x: 450, y: 260, r: 48, color: '#4F46E5', fixed: true,
+    // Level 1 - Root
+    { id: 'center', x: 450, y: 180, r: 48, color: '#4F46E5', fixed: true,
       label: lang === 'ko' ? '스마트 건설' : 'Smart\nConstruction',
       desc: lang === 'ko' ? 'AI 기반 스마트 건설 기술' : 'AI-based Smart Construction' },
-    { id: 'scaffold', x: 250, y: 160, r: 42, color: '#10B981',
-      label: lang === 'ko' ? '비계 안전' : 'Scaffold\nSafety',
-      desc: lang === 'ko' ? '비계 안전 검사 자동화 (12+ 논문)' : 'Scaffold safety automation (12+ papers)' },
-    { id: 'pointcloud', x: 650, y: 160, r: 40, color: '#3B82F6',
-      label: lang === 'ko' ? '3D 포인트\n클라우드' : '3D Point\nCloud',
-      desc: lang === 'ko' ? '3D 재구성 및 의미론적 분할' : '3D reconstruction & semantic segmentation' },
-    { id: 'deeplearning', x: 650, y: 380, r: 38, color: '#8B5CF6',
-      label: lang === 'ko' ? '딥러닝' : 'Deep\nLearning',
-      desc: lang === 'ko' ? '의미론적 분할, GAN, 객체 탐지' : 'Segmentation, GAN, object detection' },
-    { id: 'uav', x: 250, y: 380, r: 36, color: '#F59E0B',
-      label: lang === 'ko' ? 'UAV 검사' : 'UAV\nInspection',
-      desc: lang === 'ko' ? '자율 UAV 항법, 근접 촬영 (5+ 논문)' : 'Autonomous navigation, close-range (5+ papers)' },
-    { id: 'robotics', x: 120, y: 270, r: 32, color: '#EF4444',
-      label: lang === 'ko' ? '로봇 개' : 'Robot\nDog',
-      desc: lang === 'ko' ? '로봇 개 기반 자동 데이터 수집 (4 논문)' : 'Robot dog data acquisition (4 papers)' },
-    { id: 'sensor', x: 780, y: 270, r: 30, color: '#0EA5E9',
-      label: lang === 'ko' ? '센서 융합' : 'Sensor\nFusion',
-      desc: lang === 'ko' ? 'LiDAR + 카메라 다중 센서 융합' : 'LiDAR + camera multi-sensor fusion' },
-    { id: 'defect', x: 780, y: 160, r: 28, color: '#F97316',
-      label: lang === 'ko' ? '결함 검출' : 'Defect\nDetection',
-      desc: lang === 'ko' ? '건축물 품질 자동 검사' : 'Building quality inspection' },
-    { id: 'bridge', x: 120, y: 420, r: 28, color: '#F59E0B',
-      label: lang === 'ko' ? '교량 검사' : 'Bridge\nInspection',
-      desc: lang === 'ko' ? 'UAV LiDAR 교량 부재 인식 (2 논문)' : 'UAV LiDAR bridge recognition (2 papers)' },
-    { id: 'synthetic', x: 550, y: 450, r: 28, color: '#A855F7',
-      label: lang === 'ko' ? '합성 데이터' : 'Synthetic\nData',
-      desc: lang === 'ko' ? 'GAN 기반 합성 포인트 클라우드 생성' : 'GAN-based synthetic point cloud generation' },
-    { id: 'disaster', x: 350, y: 450, r: 26, color: '#06B6D4',
-      label: lang === 'ko' ? '재난 평가' : 'Disaster\nAssessment',
-      desc: lang === 'ko' ? 'LiDAR 기반 재난 후 피해 평가' : 'Post-disaster damage assessment' },
+    // Level 2 - Main categories
+    { id: 'automation', x: 150, y: 160, r: 38, color: '#10B981',
+      label: lang === 'ko' ? '건설 자동화' : 'Construction\nAutomation',
+      desc: lang === 'ko' ? '건설 프로세스 자동화 기술' : 'Construction process automation' },
+    { id: 'robotics', x: 300, y: 400, r: 38, color: '#EF4444',
+      label: lang === 'ko' ? '건설\n로보틱스' : 'Construction\nRobotics',
+      desc: lang === 'ko' ? '로봇 기반 건설 기술' : 'Robot-based construction technology' },
+    { id: 'digitaltwin', x: 600, y: 400, r: 38, color: '#3B82F6',
+      label: lang === 'ko' ? '디지털 트윈' : 'Digital\nTwin',
+      desc: lang === 'ko' ? '디지털 트윈 기반 건설 관리' : 'Digital twin-based construction management' },
+    { id: 'aimonitor', x: 750, y: 160, r: 38, color: '#8B5CF6',
+      label: lang === 'ko' ? 'AI 기반\n모니터링' : 'AI-based\nMonitoring',
+      desc: lang === 'ko' ? 'AI 기반 건설 현장 모니터링' : 'AI-based construction site monitoring' },
+    // Level 3 - Sub-topics
+    { id: 'dataprocess', x: 60, y: 60, r: 28, color: '#059669',
+      label: lang === 'ko' ? '데이터 처리\n자동화' : 'Data Processing\nAutomation',
+      desc: lang === 'ko' ? '건설 데이터 수집 및 처리 자동화' : 'Construction data collection & processing automation' },
+    { id: 'robotinspect', x: 160, y: 460, r: 28, color: '#DC2626',
+      label: lang === 'ko' ? '로봇 기반\n점검' : 'Robot-based\nInspection',
+      desc: lang === 'ko' ? '로봇을 활용한 건설 현장 점검' : 'Robot-based construction site inspection' },
+    { id: 'autonomous', x: 420, y: 480, r: 28, color: '#F97316',
+      label: lang === 'ko' ? '자율주행 및\n자율이동' : 'Autonomous\nNavigation',
+      desc: lang === 'ko' ? '건설 현장 자율주행 및 자율이동 기술' : 'Autonomous driving & navigation technology' },
+    { id: 'pointcloud', x: 520, y: 480, r: 28, color: '#2563EB',
+      label: lang === 'ko' ? '점군 기반\n모델링' : 'Point Cloud\nModeling',
+      desc: lang === 'ko' ? '3D 포인트 클라우드 기반 모델링' : '3D point cloud-based modeling' },
+    { id: 'scantobim', x: 720, y: 460, r: 28, color: '#0EA5E9',
+      label: 'Scan-to-BIM',
+      desc: lang === 'ko' ? '스캔 데이터에서 BIM 모델 생성' : 'BIM model generation from scan data' },
+    { id: 'damage', x: 840, y: 60, r: 28, color: '#7C3AED',
+      label: lang === 'ko' ? '손상 평가' : 'Damage\nAssessment',
+      desc: lang === 'ko' ? 'AI 기반 구조물 손상 평가' : 'AI-based structural damage assessment' },
+    { id: 'safety', x: 830, y: 280, r: 28, color: '#A855F7',
+      label: lang === 'ko' ? '안전\n모니터링' : 'Safety\nMonitoring',
+      desc: lang === 'ko' ? 'AI 기반 건설 현장 안전 모니터링' : 'AI-based construction site safety monitoring' },
   ];
 
-  // Edges based on actual publication connections
+  // Tree edges: Root → Level 2 → Level 3
   const edges = [
-    // Center connections
-    ['center', 'scaffold'], ['center', 'pointcloud'], ['center', 'deeplearning'],
-    ['center', 'uav'], ['center', 'robotics'],
-    // Scaffold connections (core research area)
-    ['scaffold', 'pointcloud'],   // scaffold point cloud analysis (5+ papers)
-    ['scaffold', 'uav'],          // UAV scaffold joint inspection (5+ papers)
-    ['scaffold', 'robotics'],     // robot dog scaffold data (4 papers)
-    ['scaffold', 'deeplearning'], // safety analysis via image generation
-    // Point cloud connections
-    ['pointcloud', 'deeplearning'], // semantic segmentation, 3D reconstruction
-    ['pointcloud', 'sensor'],       // sensor fusion registration
-    ['pointcloud', 'disaster'],     // LiDAR post-disaster assessment
-    ['pointcloud', 'synthetic'],    // synthetic point cloud generation
-    // Deep learning connections
-    ['deeplearning', 'defect'],     // building quality inspection
-    ['deeplearning', 'synthetic'],  // GAN, adversarial network
-    // Sensor + defect
-    ['sensor', 'defect'],           // multi-sensor defect inspection
-    // UAV + bridge
-    ['uav', 'bridge'],             // bridge component recognition with UAV LiDAR
+    // Center to Level 2
+    ['center', 'automation'],
+    ['center', 'robotics'],
+    ['center', 'digitaltwin'],
+    ['center', 'aimonitor'],
+    // Level 2 to Level 3
+    ['automation', 'dataprocess'],
+    ['robotics', 'robotinspect'],
+    ['robotics', 'autonomous'],
+    ['digitaltwin', 'pointcloud'],
+    ['digitaltwin', 'scantobim'],
+    ['aimonitor', 'damage'],
+    ['aimonitor', 'safety'],
   ];
 
   nodes.forEach(n => { n.vx = 0; n.vy = 0; });
